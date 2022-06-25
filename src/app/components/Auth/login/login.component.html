@@ -1,0 +1,84 @@
+<div class="container">
+    <app-logo></app-logo>
+  <div class="flex m-auto mt-48 p-6 rounded-lg shadow-lg bg-white max-w-sm" >
+    <form class="m-auto" [formGroup]="loginForm" (ngSubmit)="submitloginForm(loginForm)">
+        <h1 class="flex justify-center mb-5 font-extrabold text-2xl text-lightorange">Sign In</h1>
+        <div class="form-group mb-6">
+          <input formControlName="email" type="form-control" type="text" name="email" id="email"  class="form-control
+            block
+            w-full
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInputEmail2"
+            aria-describedby="emailHelp" placeholder="Enter email">
+  
+            <div  *ngIf="loginForm.get('email')?.errors !== null && loginForm.get('email')?.touched"  class="rounded-lg mb-4 text-base text-red-700 mb-3">
+              <p *ngIf="loginForm.get('email')?.errors?.['required']">Email Is Required</p>
+              <p *ngIf="loginForm.get('email')?.errors?.['email']">Email Is Invalid</p>
+  
+              </div>
+        </div>
+  
+  
+        <div class="form-group mb-6">
+          <input formControlName="password" type="password"  name="password" id="password"class="form-control block
+            w-full
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInputPassword2"
+            placeholder="Password">
+  
+            <div  *ngIf="loginForm.get('password')?.errors !== null && loginForm.get('password')?.touched" class="rounded-lg mb-4 text-base text-red-700 mb-3">
+              <p *ngIf="loginForm.get('password')?.errors?.['required']">Password Is Required</p>
+              <p *ngIf="loginForm.get('password')?.errors?.['pattern']">Password Must Start With Uppercase</p>
+  
+              </div>
+        </div>
+    
+        <button type="submit" class="
+          w-32
+          px-6
+          py-2.5
+          ml-10
+          bg-lightorange
+          text-white
+          font-medium
+          text-xs
+          leading-tight
+          uppercase
+          rounded
+          shadow-md
+          hover:bg-blue-700 hover:shadow-lg
+          focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+          active:bg-blue-800 active:shadow-lg
+          transition
+          duration-150
+          ease-in-out">Sign in</button>
+        <p class="text-gray-800 mt-6 text-center">Not a member? <a (click)="goToRegister()"
+            class="hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out text-lightorange cursor-pointer">Register</a>
+        </p>
+        <div  *ngIf="error"  class="rounded-lg text-base text-red-700 mb-3">
+          <p>something went wrong, try again!</p>
+          </div>
+      </form>
+    </div>
+  </div>
+  

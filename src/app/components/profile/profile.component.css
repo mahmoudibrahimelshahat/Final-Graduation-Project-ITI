@@ -1,0 +1,25 @@
+
+
+.container{
+    background-color: #EFEFEF;
+    height: 100vh;
+}
+
+.txt{
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 0px;
+}
+
+.para
+{
+    font-size: 11px;
+}
+
+.txtt{
+    margin-bottom: 0;
+}
+.edit-para
+{
+    font-size: 11px;
+}

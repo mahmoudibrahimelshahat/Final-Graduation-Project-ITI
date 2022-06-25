@@ -1,0 +1,11 @@
+.imaage {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    width: 151px;
+    position: absolute;
+    left: 8.59%;
+    right: 83.54%;
+    top: 4.59%;
+}

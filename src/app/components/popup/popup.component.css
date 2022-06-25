@@ -1,0 +1,9 @@
+.text
+{
+    font-weight: bolder !important; 
+}
+
+.dilog
+{
+    overflow-y: hidden;
+}

@@ -1,0 +1,21 @@
+.header {
+    background-image: url("./../../../assets/header.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  }
+  @media (min-width: 657px) {
+    .header-text {
+      margin-right: 10em;
+    }
+  }
+  .header-text h1 {
+    letter-spacing: 5px;
+  }
+  .sale-btn{
+    border: 1px solid #F68E48;
+    width: 250px;
+    padding: 13px;
+    outline: none;
+    background-color: white;
+  }

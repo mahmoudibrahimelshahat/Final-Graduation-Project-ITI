@@ -1,0 +1,176 @@
+<div class="container">
+    <app-logo></app-logo>
+      <div class="block mt-36 mb-0 mr-auto ml-auto p-6 rounded-lg shadow-lg bg-white max-w-md">
+    
+       
+          <h1 class="flex justify-center mb-5 font-extrabold text-2xl text-lightorange">Sign Up</h1>
+    
+          <form [formGroup]="registerForm" (ngSubmit)="submitRegistirationForm(registerForm)">
+    
+            <div class="form-group mb-6">
+    
+    
+              <input type="form-control" class="form-control 
+              block
+              w-full
+              px-3
+              py-1.5
+              text-base
+              font-normal
+              text-gray-700
+              bg-white bg-clip-padding
+              border border-solid border-gray-300
+              rounded
+              transition
+              ease-in-out
+              m-0
+              mb-5
+              focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput123"
+                formControlName='name' name="name" aria-describedby="emailHelp123" placeholder="Username">
+    
+    
+              <div *ngIf="registerForm.get('name')?.errors !==null && registerForm.get('name')?.touched"
+                class=" rounded-lg mb-4 text-base text-red-700 mb-3" role="alert">
+                <p *ngIf="registerForm.get('name')?.errors?.['required']">Username is required!</p>
+                <!-- <p *ngIf="registerForm.get('username')?.errors?.['minlength']"> minLength is 3</p>
+                <p *ngIf="registerForm.get('username')?.errors?.['maxlength']">maxLength is 10</p> -->
+              </div>
+              </div>
+    
+    
+    
+              <div class="form-group mb-6">
+                <input type="form-control" class="form-control block
+            w-full
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+            mt-3
+            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput125"
+                  formControlName="email" name="email" placeholder="Email address">
+    
+                <div *ngIf="registerForm.get('email')?.errors !==null && registerForm.get('email')?.touched" class="
+             rounded-lg mb-4 text-base text-red-700" role="alert">
+                  <P *ngIf="registerForm.get('email')?.errors?.['required']">email is required!</P>
+                </div>
+              </div>
+    
+              <div class="form-group mb-6">
+                <input type="text" class="form-control block
+            w-full
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput1226"
+                  formControlName="phone" name="phone" placeholder="phone">
+                <div *ngIf="registerForm.get('phone')?.errors !==null && registerForm.get('password')?.touched" class="
+             rounded-lg mb-4 text-base text-red-700 mb-3" role="alert">
+                  <P *ngIf="registerForm.get('phone')?.errors?.['required']">Password is required!</P>
+                  <!-- <P *ngIf="registerForm.get('password')?.errors?.['minlength']">password Length must be more than 11</P> -->
+                  <!-- <P *ngIf="registerForm.get('password')?.errors?.['maxlength']">password Length must be more than 11</P> -->
+                </div>
+              </div>
+    
+              <div class="form-group mb-6">
+                <input type="password" class="form-control block
+            w-full
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput126"
+                  formControlName="password" name="password" placeholder="Password">
+                <div *ngIf="registerForm.get('password')?.errors !==null && registerForm.get('password')?.touched" class="
+             rounded-lg mb-4 text-base text-red-700 mb-3" role="alert">
+                  <P *ngIf="registerForm.get('password')?.errors?.['required']">Password is required!</P>
+                  <!-- <P *ngIf="registerForm.get('password')?.errors?.['minlength']">password Length must be more than 11</P> -->
+                  <!-- <P *ngIf="registerForm.get('password')?.errors?.['maxlength']">password Length must be more than 11</P> -->
+                </div>
+              </div>
+    
+              <!-- <div class="form-group mb-6">
+          <input type="password" class="form-control block 
+            w-full
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput136"
+            formControlName='confirmPassword'
+            name="confirmpassword"
+            placeholder="Confirm Password">
+    
+             <div *ngIf="registerForm.get('confirmPassword')?.errors !==null && registerForm.get('confirmPassword')?.touched" class="
+             rounded-lg mb-4 text-base text-red-700 mb-3" role="alert">
+             <P *ngIf="registerForm.get('confirmPassword')?.errors?.['required']">Confirm Password is required!</P>
+             <p *ngIf="registerForm?.errors?.['UnmathedPassword']">
+              Confirm Password not matched
+          </p>
+             
+            </div>   
+    
+        </div> -->
+    
+    
+        <button type="submit" [disabled]="registerForm.invalid" value="submit" class="
+          w-32
+          px-1
+          py-2.5
+          ml-32
+          text-white
+          font-medium
+          flex
+          justify-center
+          text-xs
+          leading-tight
+          uppercase
+          rounded
+          shadow-md
+          bg-lightorange
+          hover:bg-lightorange hover:shadow-lg
+          focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+          active:bg-blue-800 active:shadow-lg
+          transition
+          duration-150
+          ease-in-out"> Sign up</button>
+    
+              <p class="text-gray-800 mt-6 text-center">Have an account? <a routerLink="/login"
+                  class="text-lightorange hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out cursor-pointer">Login</a>
+              </p>
+    
+           
+    
+          </form>
+      
+      </div>
+    </div>

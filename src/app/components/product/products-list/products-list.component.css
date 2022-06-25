@@ -1,0 +1,15 @@
+a:link {
+    color: black ;
+    
+  }
+  
+  
+  
+  
+  
+  .page-item.active .page-link {
+      z-index: 1;
+      color: #fff;
+      background-color: #F66B0E;
+      border-color: #F66B0E;
+  }

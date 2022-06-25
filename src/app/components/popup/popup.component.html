@@ -1,0 +1,33 @@
+<img src="../../../assets/edit.svg" (click)="showResponsiveDialog()" icon="pi pi-external-link" label="Show" 
+class="mr-5 mt-2 cursor-pointer w-5">
+<p-dialog header="Edit Your Name" [(visible)]="displayResponsive" [breakpoints]="{'960px': '75vw'}" [style]="{width: '30vw'}" class="dilog" 
+   [draggable]="false" [resizable]="true">
+   <!-- <p class="text-sm">Enter the new email address you would like to associate with your account below</p> -->
+         <input
+           type="text"
+           class="
+             form-control
+             block
+             w-15
+             px-3
+             py-1.5
+             text-base
+             font-normal
+             text-gray-700
+             bg-white bg-clip-padding
+             border border-solid border-gray-300
+             rounded
+             transition
+             ease-in-out
+             m-0
+             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+           "
+           id="exampleEmail0"
+           placeholder="Enter Your Name"
+         />
+     
+       <ng-template pTemplate="footer">
+       <p-button (click)="displayResponsive=false" label="Close" styleClass="p-button-text"></p-button>
+       <p-button (click)="displayResponsive=false" label="Save Changes" styleClass="p-button-text"></p-button>
+       </ng-template>
+</p-dialog>

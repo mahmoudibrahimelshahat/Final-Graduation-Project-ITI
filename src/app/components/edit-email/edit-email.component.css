@@ -1,0 +1,14 @@
+.text
+{
+    font-weight: bolder !important; 
+}
+
+.dilog
+{
+    overflow-y: hidden;
+}
+
+.p-button-label 
+{
+    color:#F66B0E;
+}
