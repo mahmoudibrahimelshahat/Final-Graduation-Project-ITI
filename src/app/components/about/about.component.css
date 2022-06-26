@@ -1,16 +1,13 @@
 .header {
-    background-image: url("./../../../assets/header.png");
+    background-image: url("/assets/header.png");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
   }
   @media (min-width: 657px) {
     .header-text {
-      margin-right: 10em;
+      margin-left: 30em;
     }
-  }
-  .header-text h1 {
-    letter-spacing: 5px;
   }
   .sale-btn{
     border: 1px solid #F68E48;

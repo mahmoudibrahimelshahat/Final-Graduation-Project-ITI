@@ -30,3 +30,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .p-rating:not(.p-disabled):not(.p-readonly) .p-rating-icon{
     color: #F66B0E;
 }
+.Primary-color{
+  color: #F66B0E
+}
+.second-color{
+    background-color: #F7F7F7;
+}
+.text-color{
+  color: #727272
+}
