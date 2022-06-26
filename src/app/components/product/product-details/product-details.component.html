@@ -1,54 +1,46 @@
-
-
-
-
 <div class="w-[100%] h-[7.688rem] bg-[#E3CAA5] bg-opacity-[8%]  ">
 
-  <nav class="relative w-auto flex flex-wrap items-center text-center justify-between py-3 focus:text-gray-700 mx-[10.344rem] ">
-    <div class="container-fluid w-full flex flex-wrap items-center justify-between px-6">
-      <nav class="rounded-md w-auto" aria-label="breadcrumb">
+  <nav class="relative w-auto flex flex-wrap items-center text-center justify-between py-3 focus:text-gray-700 ">
+    <div class="container-fluid w-full flex flex-wrap items-center justify-between mx-[10.344rem] ">
+      <nav class="rounded-md w-auto " aria-label="breadcrumb">
         <ol class="list-reset flex items-center gap-[.5rem]">
-          <li><a href="#" class=" hover:text-gray-600">Home</a></li>
+          <li><a routerLink="/home" class=" hover:text-gray-600">Home</a></li>
           <li><span class=" mx-2"><img src="../../../../assets/Ellipse 9.svg"></span></li>
-          <li><a href="#" class="hover:text-gray-600">Library</a></li>
+          <li><a routerLink="/productslist" class="hover:text-gray-600">Shop</a></li>
           <li><span class="mx-2"><img src="../../../../assets/Ellipse 9.svg"></span></li>
-          <li><a href="#" class="hover:text-gray-600">Data</a></li>
         </ol>
       </nav>
     </div>
   </nav>
-  
-    
+
+
 </div>
 
 
-<div class="w-[60rem] flex flex-row justify-between items-start ">
+<div class="w-[60rem] flex flex-row justify-between items-start mx-[10.344rem] mt-8 ">
 
-<div class=" w-[20rem] h-[37.126rem]">
-  <img [src]="productDetails.image" class="">
-</div>
+  <div class=" w-[20rem] h-[37.126rem]">
+    <img [src]="productDetails.image" class="">
+  </div>
 
-<div class="details w-[30.875rem] h-[30.438rem] flex flex-col justify-evenly ">
+  <div class="details w-[30.875rem] h-[30.438rem] flex flex-col justify-evenly ">
 
-<p class="text-[2rem] font-semibold">{{productDetails?.name}} </p>
+    <p class="text-[2rem] font-semibold">{{productDetails?.name}} </p>
 
-<p>{{productDetails?.description}}  </p>
+    <p>{{productDetails?.description}} </p>
 
-<div class="flex flex-row justify-between">
-  <p> {{productDetails?.price | currency  : 'EGP ' }}</p>
-<p-rating [(ngModel)]=" productDetails.rating" on [cancel]="false"></p-rating>
-</div>
+    <div class="flex flex-row justify-between">
+      <p> {{productDetails?.price | currency : 'EGP ' }}</p>
+      <p-rating [(ngModel)]=" productDetails.rating" on [cancel]="false"></p-rating>
+    </div>
 
 
     <div class="flex flex-row justify-between w-auto pr-16 xl:w-96">
-      <p class="form-label text-gray-700 font-medium" >
+      <p class="form-label text-gray-700 font-medium">
         Quantity
       </p>
-      
-      <input
-        [(ngModel)]="quantity"
-        type="number"
-        class="
+
+      <input [(ngModel)]="quantity" type="number" class="
           form-control
           block
           w-[3.9rem]
@@ -61,63 +53,340 @@
           transition
           ease-in-out
           m-0
-          focus:text-gray-700 focus:bg-white focus:outline-none"
-        id="quantity"
-        placeholder="Number input"/>
+          focus:text-gray-700 focus:bg-white focus:outline-none" id="quantity" placeholder="Number input" />
 
+
+    </div>
+
+    <p [(ngModel)]="productDetails.rating"></p>
+
+    <div *ngIf="productDetails?.countInStock  !== 0 " class="flex flex-row justify-between">
+      <p class="text-gray-700 font-medium"> availability </p>
+      <p class="pr-16">In Stock!</p>
+    </div>
+
+    <div *ngIf="productDetails?.countInStock  == 0 " class="flex flex-row justify-between">
+      <p class="text-gray-700 font-medium"> availability </p>
+      <p class="pr-16">Out Of Stock :( </p>
+    </div>
+
+
+
+    <div class="flex flex-row justify-between items-center">
+      <button (click)="addToCart()" class="w-[20.5rem] h-[3.75rem] bg-[#F66B0E] text-white font-bold">Add To
+        Cart</button>
+      <!-- <i class="bi bi-suit-heart text-2xl  hover:cursor-pointer" (click)="addToWishlist()"></i> -->
+      <i *ngIf="!updateCart" class="bi bi-suit-heart text-2xl text-[#F66B0E]   hover:cursor-pointer"
+        (click)="addToWishlist()"></i>
+      <i *ngIf="updateCart" class="bi bi-suit-heart-fill text-2xl text-[#F66B0E]   hover:cursor-pointer"
+        (click)="addToWishlist()"></i>
+    </div>
+
+    <div class=" flex flex-col  items-center">
+      <div class="bg-[#EBEBEB] w-[31.875rem] h-[3.063rem] flex items-center justify-center mb-4">
+        <p class="">Estimated delivery between 20/06/2022 - 1/07/2022</p>
+      </div>
+      <div class="flex flex-row justify-center items-center self-start">
+        <img src="../../../../assets/sign.png" class="w-[1.4rem] h-[1.2rem] pr-1">
+        <p>Free Return & Exchange.</p>
+
+      </div>
+    </div>
 
   </div>
 
-<p [(ngModel)]="productDetails.rating" ></p>
-
-<div *ngIf="productDetails?.countInStock  !== 0 " class="flex flex-row justify-between">
-  <p class="text-gray-700 font-medium"> availability </p>
-<p class="pr-16">In Stock!</p>
-</div>
-
-<div *ngIf="productDetails?.countInStock  == 0 " class="flex flex-row justify-between">
-  <p class="text-gray-700 font-medium"> availability </p>
-<p class="pr-16">Out Of Stock :( </p>
 </div>
 
 
-
-<div class="flex flex-row justify-between items-center">
-  <button (click)="addToCart()" class="w-[20.5rem] h-[3.75rem] bg-[#F66B0E] text-white font-bold">Add To Cart</button>
-  <i class="bi bi-suit-heart text-2xl  hover:cursor-pointer" (click)="addToWishlist()"></i>
-</div>
+<hr class="border-2 border-[#C4C4C4] m-auto w-[80.375rem] py-4 ">
 
 
-<div class=" flex flex-col  items-center">
-  <div class="bg-[#EBEBEB] w-[31.875rem] h-[3.063rem] flex items-center justify-center mb-4">
-    <p class="">Estimated delivery between 20/06/2022 - 1/07/2022</p>
+
+
+<!-- review section -->
+
+<div class="flex flex-row w-[80rem] mx-[10.344rem] ">
+
+  <div class="main-section w-[50%]  flex flex-row justify-evenly mb-4 "> 
+  
+
+    <div class="left-div w-[20rem] flex flex-col gap-y-[1rem]">  
+  
+  
+      <p class="font-semibold text-[1.25rem]">average Rating</p>
+      
+      
+      <div class="flex flex-row gap-x-[.5rem]">
+        <p-rating [(ngModel)]="productDetails.rating" on [cancel]="false"></p-rating>
+        <span class="font-semibold">4.5</span>
+      </div>
+    
+    
+      <p class="font-normal">20 Reviews</p>
+      
+    <div class=" flex flex-col items-start gap-y-[1rem] font-normal">
+      <div class="flex flex-row items-center justify-center text-center gap-x-[.2rem] ">
+        <p>5 Stars</p>
+         <div class="flex flex-row"><hr class="border-8 w-[3rem] border-[#F66B0E]"> <hr class="border-8 w-[3rem] border-[#C4C4C4]"> </div>
+         <p>50%</p>
+        </div>
+    
+        <div class="flex flex-row items-center justify-center text-center gap-x-[.2rem] ">
+          <p>5 Stars</p>
+           <div class="flex flex-row"><hr class="border-8 w-[2rem] border-[#F66B0E]"> <hr class="border-8 w-[4rem] border-[#C4C4C4]"> </div>
+           <p>30%</p>
+          </div>
+    
+          <div class="flex flex-row items-center justify-center  text-center gap-x-[.2rem]">
+            <span class="self-center">5 Stars</span>
+             <div class="flex flex-row"><hr class="border-8 w-[5rem] border-[#F66B0E]"> <hr class="border-8 w-[1rem] border-[#C4C4C4]"> </div>
+             <p>70%</p>
+            </div>
+    
+            <div class="flex flex-row items-center justify-center text-center gap-x-[.2rem]">
+              <p>5 Stars</p>
+               <div class="flex flex-row"><hr class="border-8 w-[3rem] border-[#F66B0E]"> <hr class="border-8 w-[3rem] border-[#C4C4C4]"> </div>
+               <p>50%</p>
+              </div>
+        </div>
+    
+    
+    
+    </div>
+  
+  
+    <div class="border-l-2 border-[#C4C4C4] h-[40rem] mx-[4rem]"> </div>
+  
+  
+    <div class="right-section flex flex-col gap-y-[.5rem] ">
+  
+  <p class=" font-semibold text-[1.25rem]">Reviews</p>
+  
+  <div class="flex flex-col items-start gap-y-[.5rem]  ">
+    <p class="font-normal text-[grey]"> 20/05/2022</p>
+  <div class="flex flex-row  items-center gap-x-[.5rem]">
+    <img src="../../../../assets/Super cute the color is exactly how it is in the picture!.png" class="rounded-full">
+    <p>Nesma Samir</p>
   </div>
-<div class="flex flex-row justify-center items-center self-start">
-  <img src="../../../../assets/sign.png" class="w-[1.4rem] h-[1.2rem] pr-1">
-  <p>Free Return & Exchange.</p>
+  
+  <p-rating [(ngModel)]=" productDetails.rating" on [cancel]="false"></p-rating>
+  
+  <p>Super cute the color is exactly how it is in the picture!</p>
+  
+  </div>
+  
+  
+  
+  <div class="flex flex-col items-start gap-y-[.5rem]  ">
+    <p class="font-normal text-[grey]"> 20/05/2022</p>
+  <div class="flex flex-row  items-center gap-x-[.5rem]">
+    <img src="../../../../assets/Super cute the color is exactly how it is in the picture!.png" class="rounded-full">
+    <p>Nesma Samir</p>
+  </div>
+  
+  <p-rating [(ngModel)]=" productDetails.rating" on [cancel]="false"></p-rating>
+  
+  <p>Super cute the color is exactly how it is in the picture!</p>
+  
+  </div>
+  
+  
+  
+
+  
+  
+  
+  <div class="flex flex-col items-start gap-y-[.5rem]  ">
+    <p class="font-normal text-[grey]"> 20/05/2022</p>
+  <div class="flex flex-row  items-center gap-x-[.5rem]">
+    <img src="../../../../assets/Super cute the color is exactly how it is in the picture!.png" class="rounded-full">
+    <p>Nesma Samir</p>
+  </div>
+  
+  <p-rating [(ngModel)]=" productDetails.rating" on [cancel]="false"></p-rating>
+  
+  <p>Super cute the color is exactly how it is in the picture!</p>
+  
+  </div>
+  
+  
+    </div>
+  
+  </div>
+  
+</div>
+
+
+
+
+  
+  
+  
+<hr class="border-2 border-[#C4C4C4] m-auto w-[80.375rem] py-4">
+
+
+
+<div class="m-auto  w-[80rem] flex flex-row justify-between ">
+  <p class="font-bold">
+    Related Products
+  </p>
+  <p>
+    <a routerLink="/productslist" class="font-bold hover:no-underline hover:text-[black]">See All</a>
+  </p>
+</div>
+
+
+
+<div class="flex flex-row m-auto gap-first justify-center py-10">
+
+  <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1  text-[#F66B0E]  text[1rem] font-inter  ">
+    <div class=" w-full relative">
+      <img [routerLink]="'/products/'+ productDetails?._id" [src]="productDetails?.image"
+        class=" w-full h-[18.563rem] ">
+
+
+      <i *ngIf="!updateCart" class="bi bi-suit-heart text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
+        (click)="addToWishlist()"></i>
+      <i *ngIf="updateCart" class="bi bi-suit-heart-fill text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
+        (click)="addToWishlist()"></i>
+
+    </div>
+    <div class="w-full h-[9.875rem] flex flex-row justify-around bg-[#E3CAA5] bg-opacity-[8%]">
+      <div class="flex flex-col justify-center">
+        <p class="text-[1.5rem] font-semibold "> {{productDetails?.name}} </p>
+        <p class="text-[1.125rem] font-normal text-black">{{ productDetails?.price | currency : 'EGP '}} </p>
+        <p-rating [(ngModel)]="productDetails.rating" on [cancel]="false"></p-rating>
+
+      </div>
+      <div class="flex flex-col justify-center">
+        <i class="bi bi-handbag text-2xl hover:cursor-pointer" (click)="addToCart()"> </i>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1 text-[#F66B0E]  text[1rem] font-inter  ">
+    <div class=" w-full relative">
+      <img [routerLink]="'/products/'+ productDetails?._id" [src]="productDetails?.image"
+        class=" w-full h-[18.563rem] ">
+
+
+      <i *ngIf="!updateCart" class="bi bi-suit-heart text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
+        (click)="addToWishlist()"></i>
+      <i *ngIf="updateCart" class="bi bi-suit-heart-fill text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
+        (click)="addToWishlist()"></i>
+
+    </div>
+    <div class="w-full h-[9.875rem] flex flex-row justify-around bg-[#E3CAA5] bg-opacity-[8%]">
+      <div class="flex flex-col justify-center">
+        <p class="text-[1.5rem] font-semibold "> {{productDetails?.name}} </p>
+        <p class="text-[1.125rem] font-normal text-black">{{ productDetails?.price | currency : 'EGP '}} </p>
+        <p-rating [(ngModel)]="productDetails.rating" on [cancel]="false"></p-rating>
+
+      </div>
+      <div class="flex flex-col justify-center">
+        <i class="bi bi-handbag text-2xl hover:cursor-pointer" (click)="addToCart()"> </i>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1  text-[#F66B0E]  text[1rem] font-inter  ">
+    <div class=" w-full relative">
+      <img [routerLink]="'/products/'+ productDetails?._id" [src]="productDetails?.image"
+        class=" w-full h-[18.563rem] ">
+
+
+      <i *ngIf="!updateCart" class="bi bi-suit-heart text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
+        (click)="addToWishlist()"></i>
+      <i *ngIf="updateCart" class="bi bi-suit-heart-fill text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
+        (click)="addToWishlist()"></i>
+
+    </div>
+    <div class="w-full h-[9.875rem] flex flex-row justify-around bg-[#E3CAA5] bg-opacity-[8%]">
+      <div class="flex flex-col justify-center">
+        <p class="text-[1.5rem] font-semibold "> {{productDetails?.name}} </p>
+        <p class="text-[1.125rem] font-normal text-black">{{ productDetails?.price | currency : 'EGP '}} </p>
+        <p-rating [(ngModel)]="productDetails.rating" on [cancel]="false"></p-rating>
+
+      </div>
+      <div class="flex flex-col justify-center">
+        <i class="bi bi-handbag text-2xl hover:cursor-pointer" (click)="addToCart()"> </i>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1  text-[#F66B0E]  text[1rem] font-inter  ">
+    <div class=" w-full relative">
+      <img [routerLink]="'/products/'+ productDetails?._id" [src]="productDetails?.image"
+        class=" w-full h-[18.563rem] ">
+
+
+      <i *ngIf="!updateCart" class="bi bi-suit-heart text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
+        (click)="addToWishlist()"></i>
+      <i *ngIf="updateCart" class="bi bi-suit-heart-fill text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
+        (click)="addToWishlist()"></i>
+
+    </div>
+    <div class="w-full h-[9.875rem] flex flex-row justify-around bg-[#E3CAA5] bg-opacity-[8%]">
+      <div class="flex flex-col justify-center">
+        <p class="text-[1.5rem] font-semibold "> {{productDetails?.name}} </p>
+        <p class="text-[1.125rem] font-normal text-black">{{ productDetails?.price | currency : 'EGP '}} </p>
+        <p-rating [(ngModel)]="productDetails.rating" on [cancel]="false"></p-rating>
+
+      </div>
+      <div class="flex flex-col justify-center">
+        <i class="bi bi-handbag text-2xl hover:cursor-pointer" (click)="addToCart()"> </i>
+      </div>
+    </div>
+
+  </div>
+
 
 </div>
+
+
+
+
+
+<div class="flex justify-evenly mb-5">
+  <nav aria-label="Page navigation example">
+    <ul class="flex list-style-none">
+      <li class="page-item"><a
+          class="page-link relative block py-1 px-2  border-0 bg-transparent outline-none transition-all duration-300 rounded-lg text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
+          href="#"><img src="../../../../assets/arrow left.svg"></a></li>
+
+
+      <li class="page-item"><a
+          class="page-link relative block py-1 px-2 border-1 bg-transparent outline-none transition-all duration-300 rounded-lg text-gray-800 m-1 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
+          href="#">1</a></li>
+
+
+      <li class="page-item active">
+        <a class="page-link relative block py-1 px-2 border-1  outline-none transition-all duration-300 rounded-lg text-white m-1  hover:text-white shadow-md active:shadow-md bg-[#F66B0E] "
+          href="#">2 <span class="visually-hidden">(current)</span></a>
+      </li>
+
+
+      <li class="page-item"><a
+          class="page-link relative block py-1 px-2 border-1 bg-transparent outline-none transition-all duration-300 rounded-lg text-gray-800 m-1 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
+          href="#">3</a></li>
+
+      <li class="page-item"><a
+          class="page-link relative block py-1 px-2 border-1 bg-transparent outline-none transition-all duration-300 rounded-lg text-gray-800 m-1 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
+          href="#">4</a></li>
+
+
+      <li class="page-item"><a
+          class="page-link relative block py-1 px-2  border-0 bg-transparent outline-none transition-all duration-300 rounded text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
+          href="#"><img src="../../../../assets/Vector.svg"></a></li>
+    </ul>
+  </nav>
+
 </div>
-
-
-</div>
- 
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <p *ngIf="productDetails?.countInStock == 0"> Availability : out of Stock</p> 
-31.875
-
-3.063
-
--->

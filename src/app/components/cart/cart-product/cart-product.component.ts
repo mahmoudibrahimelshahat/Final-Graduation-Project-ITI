@@ -6,6 +6,9 @@ import { takeUntil, BehaviorSubject, Subject, take } from 'rxjs';
 import { Router } from '@angular/router';
 import { CartService } from './../../../services/cart/cart.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Category } from 'src/app/models/category';
+import { WishlistService } from 'src/app/services/whishlist/whishlist.service';
+import { CategoriesService } from 'src/app/services/categories/categories.service';
 
 @Component({
   selector: 'app-cart-product',
@@ -20,8 +23,23 @@ export class CartProductComponent implements OnInit, OnDestroy {
 
   totalPrice: number
   isCheckout = false
+  productDetails: Product
 
-  constructor(private cartService: CartService, private productService: ProductService, private router: Router) {
+  quantity = 1;
+
+  emptyCart : number
+
+  CategoryId: string
+
+  productList: Product[] = [];
+  categoriesList: Category[] = [];
+  categoryProduct: Product[] = []
+  // cartCount: number = 0;
+
+
+  error: any = '';
+
+  constructor(private cartService: CartService, private productService: ProductService, private router: Router ,private wishlistService: WishlistService,private categoriesService: CategoriesService) {
 
     this.router.url.includes('checkout') ? (this.isCheckout = true) : (this.isCheckout = false);
 
@@ -36,6 +54,8 @@ export class CartProductComponent implements OnInit, OnDestroy {
     console.log(this.productCart)
 
 
+    this.loadProduct();
+    this.loadCategories();
 
   }
 
@@ -45,6 +65,16 @@ export class CartProductComponent implements OnInit, OnDestroy {
   }
 
 
+  addToCart() {
+    const cartProduct: CartItem =
+    {
+      productId: this.productDetails._id, 
+      quantity: this.quantity
+    }
+
+    this.cartService.setCartItem(cartProduct)
+
+  }
   private _getCartDetails() {
 
 
@@ -109,4 +139,79 @@ export class CartProductComponent implements OnInit, OnDestroy {
   }
 
 
+  private loadProduct(selectedCategories?: string[]) {
+
+    console.log('this is selected ' + selectedCategories)
+    this.productService.getproducts(selectedCategories).subscribe((resProducts) => {
+      this.productList = resProducts;
+      console.log(this.productList +'all');
+
+    });
+  }
+
+
+  private loadCategoryProducts(CategoryId?: string) {
+
+    // console.log('this is selected ' +CategoryId)
+    this.productService.getSingleCategoryproducts(CategoryId).subscribe((resProducts) => {
+      this.productList = resProducts;
+      console.log(this.productList + 'hello');
+
+    });
+  }
+
+
+  private loadCategories() {
+    this.categoriesService.getCategories().subscribe((resCategories) => {
+      this.categoriesList = resCategories;
+      // console.log(this.categoriesList);
+
+    });
+  }
+
+
+
+  categoriesFilter() {
+    const selectedCategories = this.categoriesList
+      .filter(category => category.checked)
+      .map(category => category._id)
+
+    this.loadProduct(selectedCategories)
+  }
+
+
+  categoryFilter(id : string) {
+
+    this.CategoryId = id
+
+    this.loadCategoryProducts(this.CategoryId)
+
+
+  }
+
+
+
+    
+  updateCart : boolean = false
+
+
+addToWishlist(){
+
+    if(this.updateCart){
+      this.updateCart = false
+    }else
+    {this.updateCart = true}
+
+    
+    const cartItem : CartItem = 
+  
+    {
+      productId :  this.productDetails._id,
+      quantity : 1
+    }
+  
+    return this.wishlistService.addProductToWishlist(cartItem , this.updateCart );
+  }
+  
+ 
 }

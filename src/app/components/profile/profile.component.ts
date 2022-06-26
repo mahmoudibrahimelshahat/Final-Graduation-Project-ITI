@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.type';
 import { PopupComponent } from '../popup/popup.component';
-
+import { Category } from 'src/app/models/category';
+import { Product } from 'src/app/models/product';
+import { CartService } from 'src/app/services/cart/cart.service';
+import { CategoriesService } from 'src/app/services/categories/categories.service';
+import { ProductService } from 'src/app/services/product/products-service.service';
 
 @Component({
   selector: 'app-profile',
@@ -15,8 +19,17 @@ export class ProfileComponent implements OnInit {
   dataUser:User;
   displayBasic: boolean;
 
-  constructor() {
-  }
+  CategoryId: string
+
+  productList: Product[] = [];
+  categoriesList: Category[] = [];
+  categoryProduct: Product[] = []
+  // cartCount: number = 0;
+
+
+  error: any = '';
+  constructor(private productService: ProductService, private categoriesService: CategoriesService, private cartService: CartService) { }
+
   
   
   
@@ -30,6 +43,8 @@ export class ProfileComponent implements OnInit {
     // console.log(this.userName,this.Email);
     this.userName=this.dataUser?.userName;
     this.Email=this.dataUser?.user;
+    this.loadProduct();
+    this.loadCategories();
     
   }
 
@@ -40,6 +55,58 @@ export class ProfileComponent implements OnInit {
 
     return this.dataUser?.user;
   }
+
+  
+  private loadProduct(selectedCategories?: string[]) {
+
+    console.log('this is selected ' + selectedCategories)
+    this.productService.getproducts(selectedCategories).subscribe((resProducts) => {
+      this.productList = resProducts;
+      console.log(this.productList +'all');
+
+    });
+  }
+
+
+  private loadCategoryProducts(CategoryId?: string) {
+
+    // console.log('this is selected ' +CategoryId)
+    this.productService.getSingleCategoryproducts(CategoryId).subscribe((resProducts) => {
+      this.productList = resProducts;
+      console.log(this.productList + 'hello');
+
+    });
+  }
+
+
+  private loadCategories() {
+    this.categoriesService.getCategories().subscribe((resCategories) => {
+      this.categoriesList = resCategories;
+      // console.log(this.categoriesList);
+
+    });
+  }
+
+
+
+  categoriesFilter() {
+    const selectedCategories = this.categoriesList
+      .filter(category => category.checked)
+      .map(category => category._id)
+
+    this.loadProduct(selectedCategories)
+  }
+
+
+  categoryFilter(id : string) {
+
+    this.CategoryId = id
+
+    this.loadCategoryProducts(this.CategoryId)
+
+
+  }
+
 
 
 }

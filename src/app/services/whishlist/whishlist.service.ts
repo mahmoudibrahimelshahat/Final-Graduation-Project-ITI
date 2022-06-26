@@ -10,8 +10,11 @@ export class WishlistService {
   constructor() { }
 
   wishlist$: BehaviorSubject<Cart> = new BehaviorSubject<Cart>(this.getWishlist())
-  endSub$: Subject<any> = new Subject<void>()
+  
 
+  updated : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
+
+  endSub$: Subject<any> = new Subject<void>()
 
 
   initWishlistLocalStorage() {
@@ -67,6 +70,7 @@ export class WishlistService {
     const wishlistJson = JSON.stringify(wishlist);
     localStorage.setItem('wishlist', wishlistJson);
     this.wishlist$.next(wishlist);
+    this.updated.next(updateCartItem)
     return wishlist;
   }
 

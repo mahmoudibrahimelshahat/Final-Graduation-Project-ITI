@@ -1,13 +1,13 @@
-
-
-
-
-
-
 <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1 mb-9 text-[#F66B0E]  text[1rem] font-inter  ">
     <div class=" w-full relative">
         <img [routerLink]="'/products/'+ productItem?._id" [src]="productItem?.image" class=" w-full h-[18.563rem] ">
-        <i class="bi bi-suit-heart text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer" (click)="addToWishlist()"></i>
+
+
+        <i *ngIf="!updateCart" class="bi bi-suit-heart text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
+            (click)="addToWishlist()"></i>
+        <i *ngIf="updateCart"
+            class="bi bi-suit-heart-fill text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
+            (click)="addToWishlist()"></i>
 
     </div>
     <div class="w-full h-[9.875rem] flex flex-row justify-around bg-[#E3CAA5] bg-opacity-[8%]">
