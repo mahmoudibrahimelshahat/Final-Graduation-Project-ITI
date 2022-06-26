@@ -1,8 +1,31 @@
-<div class="checkout-page">
-    <div class="thankyou-page">
-      <h2>Thank you for Shopping with us!</h2>
-      <h3>We have recieved your order and it will be delivered in the next 3 days</h3>
-      <p-button label="Back to shop" routerLink="/"></p-button>
-    </div>
+<div class="curcumbre">
+  <p-breadcrumb class="elbr" [model]="items" [home]="home"></p-breadcrumb>
+
+</div>
+<!-- ---------------- -->
+<div class="all md:flex lg:flex w-[700px]  justify-evenly lg:mx-auto lg:text-center md:mx-auto md:text-center">
+  <div class="item">
+    <div class="w-[50px] h-[50px] lg:mx-[5px] border-[1px] bg-none border-[orange] rounded-full sm:text-center sm:px-auto sm:mx-auto"></div>
+    <p class="py-5 font-medium">Shipping</p>
   </div>
-  
+  <div class="item2 relative lg:after:content-[''] lg:after:border-b-[4px] lg:after:absolute lg:after:w-[113px] lg:after:top-6 lg:after:right-[65px]
+  md:after:content-[''] md:after:border-b-[4px] md:after:absolute md:after:w-[113px] md:after:top-6 md:after:right-[65px]">
+    <div class="w-[50px] h-[50px] lg:mx-[5px] border-[1px] bg-none border-[orange] rounded-full sm:text-center sm:px-auto sm:mx-auto"></div>
+    <p class="py-5 font-medium">Billing</p>
+  </div>
+  <div class="item3 relative lg:after:content-[''] lg:after:border-b-[4px] lg:after:absolute lg:after:w-[113px] lg:after:top-6 lg:after:right-[105px]
+  md:after:content-[''] md:after:border-b-[4px] md:after:absolute md:after:w-[113px] md:after:top-6 md:after:right-[105px]">
+    <div class="w-[50px] h-[50px] lg:mx-[5px] border-[1px] bg-orange-400 rounded-full sm:text-center sm:px-auto sm:mx-auto"></div>
+    <p class="py-5 font-medium">Confirmation</p>
+  </div>
+</div>
+<!-- ---------------- -->
+
+<div class="checkout-page">
+  <div class="thankyou-page text-center my-7">
+    <h2 class="text-[25px] font-bold">Congratulations! Your order has been placed</h2>
+    <h3>We have recieved your order and it will be delivered in the next 3 days</h3>
+    <img class="mx-auto my-7" src="../../../assets/fin.png" alt="">
+    <button class="border-[3px] p-2 border-orange-400 bg-orange-400 text-white border-r-2" routerLink="/list">Back To Shop</button>
+  </div>
+</div>

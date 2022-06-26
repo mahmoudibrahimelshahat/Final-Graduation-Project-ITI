@@ -39,3 +39,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .text-color{
   color: #727272
 }
+
+
+.p-breadcrumb{
+  background-color: rgba(227, 202, 165, 0.08) !important;
+  border:none !important
+}

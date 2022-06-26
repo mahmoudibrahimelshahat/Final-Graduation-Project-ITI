@@ -1,11 +1,14 @@
 import { CartService } from 'src/app/services/cart/cart.service';
-import { Cart, CartItem } from 'src/app/models/cart';
+import { Cart, CartItem, CartProduct } from 'src/app/models/cart';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,  FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Order } from 'src/app/models/order';
 import { OrdersService } from 'src/app/services/orders/orders.service';
 import { ORDER_STATUS } from 'src/app/models/order.constants';
+import { MenuItem } from 'primeng/api';
+import { Subject, take, takeUntil } from 'rxjs';
+import { ProductService } from 'src/app/services/product/products-service.service';
 
 @Component({
   selector: 'app-checkout',
@@ -13,11 +16,25 @@ import { ORDER_STATUS } from 'src/app/models/order.constants';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
+  productCart: CartProduct[] = []
+  items: MenuItem[];
+
+  home: MenuItem;
+  checkout: MenuItem;
+  cart: MenuItem;
+  cartCount = 0;
+
+totalPrice: number
+
+endSub$: Subject<any> = new Subject<void>()
+
+
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
     private cartService: CartService,
     private ordersService: OrdersService,
+     private productService: ProductService
 
   ) {}
   checkoutFormGroup: FormGroup;
@@ -26,8 +43,17 @@ export class CheckoutComponent implements OnInit {
   userId = "62b36d93ab1ef738687c672e";
 
   ngOnInit(): void {
+    this.items = [
+      {label: 'Shopping Cart', routerLink: '/cart'},
+      {label: 'Checkout', routerLink: '/checkout'},
+  ];
+
+  this.home = {icon: 'pi pi-home', routerLink: '/'};
+
     this._initCheckoutForm();
     this._getCartItems();
+    this._getCartDetails()
+    this.getOrderSummary()
   }
 
   private _initCheckoutForm() {
@@ -96,5 +122,52 @@ export class CheckoutComponent implements OnInit {
 
   get checkoutForm() {
     return this.checkoutFormGroup.controls;
+  }
+
+
+
+
+  private _getCartDetails() {
+
+
+    this.cartService.cart$.pipe(takeUntil(this.endSub$)).subscribe((responseCart) => {
+
+      this.productCart = [];
+      this.cartCount = responseCart?.items.length ?? 0;
+
+      responseCart.items.forEach((cartItem) => {
+        this.productService.getProductById(cartItem.productId).subscribe((productItem) => {
+          this.productCart.push({
+            product: productItem,
+            quantity: cartItem.quantity
+          })
+
+        })
+      })
+    })
+
+  }
+
+getOrderSummary() {
+
+    this.cartService.cart$.pipe(takeUntil(this.endSub$)).subscribe((responseCart) => {
+      this.totalPrice = 0;
+      if (responseCart) {
+        responseCart.items.map((cartItem) => {
+          this.productService.getProductById(cartItem.productId).pipe(take(1)).subscribe((productItem) => {
+
+            this.totalPrice += productItem.price * cartItem.quantity;
+
+          })
+
+
+        })
+      }
+    }
+
+
+
+
+    )
   }
 }

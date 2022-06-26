@@ -39,6 +39,7 @@ import {RatingModule} from 'primeng/rating';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/nav/navbar/navbar.component';
 import { NavbarLogoComponent } from './components/nav/navbar-logo/navbar-logo.component';
+import {BreadcrumbModule} from 'primeng/breadcrumb';
 
 
 @NgModule({
@@ -71,7 +72,7 @@ import { NavbarLogoComponent } from './components/nav/navbar-logo/navbar-logo.co
     NavbarComponent,
     NavbarLogoComponent,
   ],
-  imports: [BrowserModule,DialogModule,ButtonModule,CommonModule, AppRoutingModule, HttpClientModule, FormsModule, BrowserAnimationsModule , BadgeModule,ReactiveFormsModule,RatingModule,
+  imports: [BrowserModule,DialogModule,ButtonModule,CommonModule, BreadcrumbModule,AppRoutingModule, HttpClientModule, FormsModule, BrowserAnimationsModule , BadgeModule,ReactiveFormsModule,RatingModule,
     NgxStripeModule.forRoot('pk_test_51LAHRkDcklN39IybeFn1mPXwjK5zmDTS93UCM7gLDvAgoDFAeI0aizpNpkgLyMPWyrbWaZtEzWNI2ZbZgeBantHH00XSZXcTpG'),],
   providers: [
     AuthGuard,
