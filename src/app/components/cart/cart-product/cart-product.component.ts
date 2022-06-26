@@ -16,6 +16,8 @@ import { CategoriesService } from 'src/app/services/categories/categories.servic
   styleUrls: ['./cart-product.component.css']
 })
 export class CartProductComponent implements OnInit, OnDestroy {
+  p : number = 1
+
 
   productCart: CartProduct[] = []
   cartCount = 0;
