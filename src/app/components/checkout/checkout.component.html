@@ -30,17 +30,17 @@
   </div>
   <!-- ---------------------- -->
 
-  <div class="grid grid-cols-12 gap-20 md:px-[7em] px-8">
+  <div class="grid grid-cols-12 lg:gap-20 md:px-[7em] px-8">
 
     <div class="col-span-full md:col-span-12 lg:col-span-6">
 
       <h2 class="mb-6 font-medium text-2xl">Contact Info</h2>
 
       <form form [formGroup]="checkoutFormGroup">
+ 
+        <div class="lg:grid lg:grid-cols-6 gap-2 md:block  lg:col-span-6">
 
-        <div class="md:flex md:justify-between">
-
-          <div class="form-group mb-4">
+          <div class="form-group mb-4 md:col-span-3 lg:col-span-3">
             <input type="text" id="name" placeholder="First Name"
               class="form-control border-b border-solid border-orange-500 p-2 pl-0 outline-none"
               formControlName="firstName">
@@ -48,7 +48,7 @@
               required</small>
           </div>
 
-          <div class="form-group mb-4">
+          <div class="form-group mb-4 md:col-span-3 lg:col-span-3">
             <input type="text" id="name" placeholder="Last Name"
               class="form-control border-b border-solid border-orange-500 p-2 pl-0 outline-none"
               formControlName="lastName">
@@ -56,14 +56,14 @@
               required</small>
           </div>
         </div>
-        <div class="md:flex md:justify-between mb-8">
-          <div class="form-group mb-4">
+        <div class="lg:grid lg:grid-cols-6 gap-2 md:block  lg:col-span-6 mb-8">
+          <div class="form-group mb-4 md:col-span-3 lg:col-span-3">
             <input type="text" id="phone" placeholder="Mobile Number"
               class="form-control border-b border-solid border-orange-500 p-2 pl-0 outline-none"
               formControlName="phone">
             <small *ngIf="checkoutForm?.['phone'].invalid && isSubmitted" class="p-error ">phone is required</small>
           </div>
-          <div class="form-group mb-4">
+          <div class="form-group mb-4 md:col-span-3 lg:col-span-3">
             <input formControlName="email" placeholder="Email Address" id="email" type="text"
               class="form-control border-b border-solid border-orange-500 p-2 pl-0 outline-none" />
             <small *ngIf="checkoutForm?.['email'].invalid && isSubmitted" class="p-error"><span
@@ -73,54 +73,52 @@
           </div>
         </div>
         <h2 class="mb-6 font-medium text-xl">Shipping Address</h2>
-        <div class="md:flex md:justify-between">
+        <div class="lg:grid lg:grid-cols-6 gap-2 md:block  lg:col-span-6">
 
-          <div class="form-group mb-4">
+          <div class="form-group mb-4 md:col-span-3 lg:col-span-3">
             <input type="text" id="city" placeholder="Your city"
               class="form-control border-b border-solid border-orange-500 p-2 pl-0 outline-none" formControlName="city">
             <small *ngIf="checkoutForm?.['city'].invalid && isSubmitted" class="p-error">city is required</small>
           </div>
-          <div class="form-group mb-4">
+          <div class="form-group mb-4 md:col-span-3 lg:col-span-3">
             <input type="text" id="country" placeholder="Your country"
               class="form-control border-b border-solid border-orange-500 p-2 pl-0 outline-none"
               formControlName="country">
             <small *ngIf="checkoutForm?.['country'].invalid && isSubmitted" class="p-error">country is required</small>
           </div>
         </div>
-        <div class="md:flex md:justify-between">
+        <div class="lg:grid lg:grid-cols-6 gap-2 md:block  lg:col-span-6">
 
-          <div class="form-group mb-4">
+          <div class="form-group mb-4 md:col-span-3 lg:col-span-3">
             <input type="text" id="address" placeholder="Your address"
               class="form-control border-b border-solid border-orange-500 p-2 pl-0 outline-none"
               formControlName="address">
             <small *ngIf="checkoutForm?.['address'].invalid && isSubmitted" class="p-error">address is required</small>
           </div>
 
-          <div class="form-group mb-4">
+          <div class="form-group mb-4 md:col-span-3 lg:col-span-3">
             <input type="text" id="zip" placeholder="Your zip"
               class="form-control border-b border-solid border-orange-500 p-2 pl-0 outline-none" formControlName="zip">
             <small *ngIf="checkoutForm?.['zip'].invalid && isSubmitted" class="p-error">zip is required</small>
           </div>
         </div>
 
-        <div class="form-group mb-4 text-center mt-6">
+        <div class="form-group mb-4 md:col-span-3 lg:col-span-3 text-center mt-6">
           <button class="bg-orange-500 w-64 outline-none border-0 mb-6 md:mb-0 text-l py-2 text-white"
             (click)="placeOrder()">Continue to payment</button>
         </div>
       </form>
     </div>
     <div class="col-span-full md:col-span-12 lg:col-span-6">
-      <h2 class="mb-6 font-medium text-2xl">Your Order</h2>
-      <h4 class="font-medium text-lg">Order Summary</h4>
-      <div class="flex justify-between items-center">
-        <div></div>
-        <div></div>
-      </div>
-      <div></div>
-      <div *ngIf="productCart">
-        <p>Cart Count: {{cartCount}} </p>
-        <p>Total Price :{{totalPrice}} </p>
-      </div>
+      <div class=" lg:w-[19.469rem] text-center p-4  border-2 ">
+        <p class="font-semibold border-b-2 pb-2">Order Summary</p>
+
+        <p class="p-2 font-bold  py-4"> {{ totalPrice| currency : 'EGP': 'symbol' : '1.0-0'}}
+      </p>
+
+
+
+       </div>
     </div>
 
   </div>
