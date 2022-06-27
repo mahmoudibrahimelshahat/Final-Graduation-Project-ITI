@@ -1,95 +1,127 @@
 <div class="curcumbre">
   <p-breadcrumb class="elbr" [model]="items" [home]="home"></p-breadcrumb>
-
 </div>
 <!-- ---------------- -->
-<div class="all md:flex lg:flex w-[700px]  justify-evenly lg:mx-auto lg:text-center md:mx-auto md:text-center">
-  <div class="item">
-    <div
-      class="w-[50px] h-[50px] lg:mx-[5px] border-[1px] bg-orange-400 border-[orange] rounded-full sm:text-center sm:px-auto sm:mx-auto">
-    </div>
-    <p class="py-5 font-medium">Shipping</p>
-  </div>
+<section class="py-8">
   <div
-    class="item2 relative lg:after:content-[''] lg:after:border-b-[4px] lg:after:absolute lg:after:w-[113px] lg:after:top-6 lg:after:right-[65px]
+    class="all flex  md:flex lg:flex md:w-[700px]  justify-evenly lg:mx-auto lg:text-center md:mx-auto md:text-center py-8 mb-6">
+    <div class="item">
+      <div
+        class="w-[50px] h-[50px] lg:mx-[5px] border-[1px] bg-orange-400 border-[orange] rounded-full sm:text-center sm:px-auto sm:mx-auto">
+      </div>
+      <p class="py-5 font-medium">Shipping</p>
+    </div>
+    <div
+      class="item2 relative lg:after:content-[''] lg:after:border-b-[4px] lg:after:absolute lg:after:w-[113px] lg:after:top-6 lg:after:right-[65px]
   md:after:content-[''] md:after:border-b-[4px] md:after:absolute md:after:w-[113px] md:after:top-6 md:after:right-[65px]">
-    <div
-      class="w-[50px] h-[50px] lg:mx-[5px] border-[1px] bg-none border-[orange] rounded-full sm:text-center sm:px-auto sm:mx-auto">
+      <div
+        class="w-[50px] h-[50px] lg:mx-[5px] border-[1px] bg-none border-[orange] rounded-full sm:text-center sm:px-auto sm:mx-auto">
+      </div>
+      <p class="py-5 font-medium">Billing</p>
     </div>
-    <p class="py-5 font-medium">Billing</p>
-  </div>
-  <div
-    class="item3 relative lg:after:content-[''] lg:after:border-b-[4px] lg:after:absolute lg:after:w-[113px] lg:after:top-6 lg:after:right-[105px]
+    <div
+      class="item3 relative lg:after:content-[''] lg:after:border-b-[4px] lg:after:absolute lg:after:w-[113px] lg:after:top-6 lg:after:right-[105px]
   md:after:content-[''] md:after:border-b-[4px] md:after:absolute md:after:w-[113px] md:after:top-6 md:after:right-[105px]">
-    <div
-      class="w-[50px] h-[50px] lg:mx-[5px] border-[orange] border-[1px] bg-none rounded-full sm:text-center sm:px-auto sm:mx-auto">
+      <div
+        class="w-[50px] h-[50px] lg:mx-[5px] border-[orange] border-[1px] bg-none rounded-full sm:text-center sm:px-auto sm:mx-auto">
+      </div>
+      <p class="py-5 font-medium">Confirmation</p>
     </div>
-    <p class="py-5 font-medium">Confirmation</p>
   </div>
-</div>
-<!-- ---------------------- -->
+  <!-- ---------------------- -->
 
-<div class="grid grid-cols-12 gap-28">
-  <div class="grid-col-2"></div>
-  <div class="col-span-full md:col-span-12 lg:col-span-7 border-2">
-    <form form [formGroup]="checkoutFormGroup">
-      <div class="form-group">
-        <label for="name">First Name :</label>
-        <input type="text" id="name" placeholder="First Name" class="form-control" formControlName="firstName">
-        <small *ngIf="checkoutForm?.['firstName'].invalid && isSubmitted" class="p-error">First Name is required</small>
-      </div>
-      <div class="form-group">
-        <label for="name">Last Name :</label>
-        <input type="text" id="name" placeholder="Last Name" class="form-control" formControlName="lastName">
-        <small *ngIf="checkoutForm?.['lastName'].invalid && isSubmitted" class="p-error">Second Name is required</small>
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input formControlName="email" placeholder="Email" id="email" type="text" class="form-control" />
-        <small *ngIf="checkoutForm?.['email'].invalid && isSubmitted" class="p-error"><span
-            *ngIf="checkoutForm?.['email'].errors?.['required']">email is required</span>
-          <span *ngIf="checkoutForm?.['email'].errors?.['email']">email is invalid</span></small>
+  <div class="grid grid-cols-12 gap-20 md:px-[7em] px-8">
 
-      </div>
-      <div class="form-group">
-        <label for="phone">Phone :</label>
-        <input type="text" id="phone" placeholder="Your phone" class="form-control" formControlName="phone">
-        <small *ngIf="checkoutForm?.['phone'].invalid && isSubmitted" class="p-error">phone is required</small>
-      </div>
-      <div class="form-group">
-        <label for="address">Address :</label>
-        <input type="text" id="address" placeholder="Your address" class="form-control" formControlName="address">
-        <small *ngIf="checkoutForm?.['address'].invalid && isSubmitted" class="p-error">address is required</small>
-      </div>
-      <div class="form-group">
-        <label for="country">Country :</label>
-        <input type="text" id="country" placeholder="Your country" class="form-control" formControlName="country">
-        <small *ngIf="checkoutForm?.['country'].invalid && isSubmitted" class="p-error">country is required</small>
-      </div>
-      <div class="form-group">
-        <label for="city">City :</label>
-        <input type="text" id="city" placeholder="Your city" class="form-control" formControlName="city">
-        <small *ngIf="checkoutForm?.['city'].invalid && isSubmitted" class="p-error">city is required</small>
-      </div>
-      <div class="form-group">
-        <label for="zip">Zip :</label>
-        <input type="text" id="zip" placeholder="Your zip" class="form-control" formControlName="zip">
-        <small *ngIf="checkoutForm?.['zip'].invalid && isSubmitted" class="p-error">zip is required</small>
-      </div>
+    <div class="col-span-full md:col-span-12 lg:col-span-6">
 
+      <h2 class="mb-6 font-medium text-2xl">Contact Info</h2>
 
-      <div class="form-group text-center">
-        <button class="btn btn-primary" (click)="placeOrder()">Place-Order</button>
+      <form form [formGroup]="checkoutFormGroup">
+
+        <div class="md:flex md:justify-between">
+
+          <div class="form-group mb-4">
+            <input type="text" id="name" placeholder="First Name"
+              class="form-control border-b border-solid border-orange-500 p-2 pl-0 outline-none"
+              formControlName="firstName">
+            <small *ngIf="checkoutForm?.['firstName'].invalid && isSubmitted" class="p-error">First Name is
+              required</small>
+          </div>
+
+          <div class="form-group mb-4">
+            <input type="text" id="name" placeholder="Last Name"
+              class="form-control border-b border-solid border-orange-500 p-2 pl-0 outline-none"
+              formControlName="lastName">
+            <small *ngIf="checkoutForm?.['lastName'].invalid && isSubmitted" class="p-error">Second Name is
+              required</small>
+          </div>
+        </div>
+        <div class="md:flex md:justify-between mb-8">
+          <div class="form-group mb-4">
+            <input type="text" id="phone" placeholder="Mobile Number"
+              class="form-control border-b border-solid border-orange-500 p-2 pl-0 outline-none"
+              formControlName="phone">
+            <small *ngIf="checkoutForm?.['phone'].invalid && isSubmitted" class="p-error ">phone is required</small>
+          </div>
+          <div class="form-group mb-4">
+            <input formControlName="email" placeholder="Email Address" id="email" type="text"
+              class="form-control border-b border-solid border-orange-500 p-2 pl-0 outline-none" />
+            <small *ngIf="checkoutForm?.['email'].invalid && isSubmitted" class="p-error"><span
+                *ngIf="checkoutForm?.['email'].errors?.['required']">email is required</span>
+              <span *ngIf="checkoutForm?.['email'].errors?.['email']">email is invalid</span></small>
+
+          </div>
+        </div>
+        <h2 class="mb-6 font-medium text-xl">Shipping Address</h2>
+        <div class="md:flex md:justify-between">
+
+          <div class="form-group mb-4">
+            <input type="text" id="city" placeholder="Your city"
+              class="form-control border-b border-solid border-orange-500 p-2 pl-0 outline-none" formControlName="city">
+            <small *ngIf="checkoutForm?.['city'].invalid && isSubmitted" class="p-error">city is required</small>
+          </div>
+          <div class="form-group mb-4">
+            <input type="text" id="country" placeholder="Your country"
+              class="form-control border-b border-solid border-orange-500 p-2 pl-0 outline-none"
+              formControlName="country">
+            <small *ngIf="checkoutForm?.['country'].invalid && isSubmitted" class="p-error">country is required</small>
+          </div>
+        </div>
+        <div class="md:flex md:justify-between">
+
+          <div class="form-group mb-4">
+            <input type="text" id="address" placeholder="Your address"
+              class="form-control border-b border-solid border-orange-500 p-2 pl-0 outline-none"
+              formControlName="address">
+            <small *ngIf="checkoutForm?.['address'].invalid && isSubmitted" class="p-error">address is required</small>
+          </div>
+
+          <div class="form-group mb-4">
+            <input type="text" id="zip" placeholder="Your zip"
+              class="form-control border-b border-solid border-orange-500 p-2 pl-0 outline-none" formControlName="zip">
+            <small *ngIf="checkoutForm?.['zip'].invalid && isSubmitted" class="p-error">zip is required</small>
+          </div>
+        </div>
+
+        <div class="form-group mb-4 text-center mt-6">
+          <button class="bg-orange-500 w-64 outline-none border-0 mb-6 md:mb-0 text-l py-2 text-white"
+            (click)="placeOrder()">Continue to payment</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-span-full md:col-span-12 lg:col-span-6">
+      <h2 class="mb-6 font-medium text-2xl">Your Order</h2>
+      <h4 class="font-medium text-lg">Order Summary</h4>
+      <div class="flex justify-between items-center">
+        <div></div>
+        <div></div>
       </div>
-    </form>
-  </div>
-
-  <div class="col-span-full md:col-span-12 lg:col-span-3 border-2">
-    <div *ngIf="productCart">
-
-      <p>Cart Count: {{cartCount}} </p>
-      <p>Total Price :{{totalPrice}} </p>
+      <div></div>
+      <div *ngIf="productCart">
+        <p>Cart Count: {{cartCount}} </p>
+        <p>Total Price :{{totalPrice}} </p>
+      </div>
     </div>
 
   </div>
-</div>
+</section>
