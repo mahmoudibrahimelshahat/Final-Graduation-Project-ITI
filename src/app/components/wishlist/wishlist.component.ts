@@ -25,7 +25,8 @@ export class WishlistComponent implements OnInit {
   // categoryProduct: Product[] = []
   Count: number = 0;
   updateCart: boolean = false
-
+  
+  p :number = 1
 
 
   error: any = '';

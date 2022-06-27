@@ -1,66 +1,9 @@
 
-<!-- <nav class="bg-white py-0">
 
-    <div class="grid grid-flow-col grid-cols-1 lg:grid-cols-1 justify-between w-[90%] m-auto items-center">
-
-
-        <ul class="lg:flex justify-center hidden">
-
-            <li class="py-4 px-4 width-4">
-
-                <a href="#"> Home </a>
-            </li>
-            <li class="py-4 px-4 width-4 categories">
-
-                <a  class="inline" routerLink="/list">
-                    Shop
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-caret-down text-xs inline" viewBox="0 0 16 16">
-                        <path
-                            d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
-                    </svg>
-                </a>
-
-
-                <div *ngIf="categoriesList">
-
-                    <ul class="categories-list">
-                        <li *ngFor="let category of categoriesList">
-                            <a href="#" [routerLink]="'/categories/'+ category?._id"
-                                (click)='categoryFilter(category._id)'>{{category.name}}</a>
-                        </li>
-                    </ul>
-
-
-
-                </div>
-
-
-
-
-
-            </li>
-            <li class="py-4  pr-4 width-4">
-
-                <a routerLink="/about"> About us </a>
-              </li>
-              <li class="py-4 px-4 width-4">
-        
-                <a routerLink="/contact"> Contact us </a>
-              </li>
-
-        </ul>
-
-
-    </div>
-
-</nav> -->
-<div class="flex flex-row ">
+<div class="flex flex-row  ">
 <app-side-nav></app-side-nav>
 
-<div class='w-[100%] flex flex-col items-center'>
-
-
+<div class='w-[100%] flex flex-col items-center justify-start'>
 
       <div *ngIf="Count === 0" class="w-full h-full my-[10.344rem] ">
       
@@ -70,20 +13,26 @@
       
       </div>
 
-    <div *ngIf="Count > 0" class="grid gap-x-first grid-cols-4 m-10">
+    <div *ngIf="Count > 0" class="grid gap-x-first grid-cols-3 m-10">
 
-        <div  class="flex flex-wrap" *ngFor="let product of  wishlistProducts">
-
-
+        <div  class="flex flex-wrap" *ngFor="let product of  wishlistProducts  | paginate: { itemsPerPage: 3, currentPage: p}">
 
             <app-product-item [productItem]="product.product"></app-product-item>
-
-
-
         </div>
 
+
+      
+    
     </div>
 
 
+    <div class=" absolute text-center top-[100%] right-[10rem]  mt-8">
+        <pagination-controls (pageChange)="p = $event">  </pagination-controls>
+    </div>
+
 </div>
+
+
 </div>
+
+
