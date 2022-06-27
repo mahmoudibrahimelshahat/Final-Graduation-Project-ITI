@@ -1,3 +1,4 @@
+
 <!-- <nav class="bg-white py-0">
 
     <div class="grid grid-flow-col grid-cols-1 lg:grid-cols-1 justify-between w-[90%] m-auto items-center">
@@ -54,7 +55,8 @@
     </div>
 
 </nav> -->
-
+<div class="flex flex-row ">
+<app-side-nav></app-side-nav>
 
 <div class='w-[100%] flex flex-col items-center'>
 
@@ -68,9 +70,9 @@
       
       </div>
 
-    <div *ngIf="Count > 0" class="grid gap-x-first grid-cols-4">
+    <div *ngIf="Count > 0" class="grid gap-x-first grid-cols-4 m-10">
 
-        <div *ngFor="let product of  wishlistProducts">
+        <div  class="flex flex-wrap" *ngFor="let product of  wishlistProducts">
 
 
 
@@ -83,4 +85,5 @@
     </div>
 
 
+</div>
 </div>

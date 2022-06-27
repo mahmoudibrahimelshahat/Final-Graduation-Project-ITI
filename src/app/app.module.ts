@@ -41,6 +41,7 @@ import { NavbarComponent } from './components/nav/navbar/navbar.component';
 import { NavbarLogoComponent } from './components/nav/navbar-logo/navbar-logo.component';
 import {BreadcrumbModule} from 'primeng/breadcrumb';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ProfileInfoComponent } from './profile-info/profile-info.component';
 
 
 @NgModule({
@@ -72,6 +73,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FooterComponent,
     NavbarComponent,
     NavbarLogoComponent,
+    ProfileInfoComponent,
   ],
   imports: [BrowserModule,NgxPaginationModule,DialogModule,ButtonModule,CommonModule, BreadcrumbModule,AppRoutingModule, HttpClientModule, FormsModule, BrowserAnimationsModule , BadgeModule,ReactiveFormsModule,RatingModule,
     NgxStripeModule.forRoot('pk_test_51LAHRkDcklN39IybeFn1mPXwjK5zmDTS93UCM7gLDvAgoDFAeI0aizpNpkgLyMPWyrbWaZtEzWNI2ZbZgeBantHH00XSZXcTpG'),],

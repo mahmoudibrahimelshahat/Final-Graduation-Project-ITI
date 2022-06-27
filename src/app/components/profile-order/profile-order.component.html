@@ -1,1 +1,57 @@
-<p>profile-order works!</p>
+<div class="flex flex-row ">
+
+    <app-side-nav></app-side-nav>
+  
+    <div class="container">
+      <div class="translate-x-11 translate-y-5">
+      
+        <h1 class="font-extrabold leading-tight text-xl mt-0 text-black translate-y-1 txtt">Orders</h1>
+        <p class="text-lightgrey mt-1 text-base edit-para">View your order history </p>
+  
+        <div class="content" *ngFor="let order of orders">
+        <div class="w-96 sm:w-60% md:w-60% mt-5">
+  
+          <div class=" p-6 rounded-lg shadow-lg bg-white pl-10">
+  
+            <div class="flex flex-row justify-between ">
+              <div>
+                <h6 class="text-gray-900 text-base txt">#{{order._id}}</h6>
+                <span class=" text-sm mb-4 para text-lightgrey">Place on:</span>
+                <span class="text-sm text-lightgrey"> {{ order.dateOrdered | date:'medium'}} </span>
+
+                <p>
+                <span class=" text-sm mb-4 para text-lightgrey inline">Total Price:</span>
+                <span class="text-sm text-lightgrey"> {{order.totalPrice}}</span>
+                </p>
+
+              
+
+
+              </div>
+  
+  
+            </div>
+  
+  
+  
+            <div class="flex flex-row justify-between mt-3">
+              <div>
+                <!-- <h5 class="text-gray-900 text-2xl txt">Email</h5> -->
+                <p>
+                    <span class=" text-sm">Ship To:</span>
+                    <span class="text-xs"> {{order.address}}, {{order.city}}, {{order.country}}</span>
+                    </p>
+              </div>
+  
+            </div>
+  
+          </div>
+  
+        </div>
+        </div>
+  
+  
+      </div>
+    </div>
+  
+  </div>

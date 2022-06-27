@@ -5,5 +5,6 @@ export interface ProfileOrder {
     dateOrdered:string;
     totalPrice:number;
     address:string;
-    country:string
+    country:string;
+    city:string;
 }
