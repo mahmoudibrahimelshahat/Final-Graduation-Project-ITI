@@ -59,13 +59,11 @@
 
 <div *ngIf="cartCount === 0" class="w-full h-full my-[10.344rem] ">
 
-  <div *ngIf="cartCount === 0" class="w-full h-full my-[10.344rem] ">
       
     <div class="flex justify-center items-start w-full  ">
-      <img  class="bg-cover inline-block hue-rotate-15  " src="../../../../assets/empty-cart.png">
+      <img  class="bg-cover inline-block hue-rotate-15  brightness-100 " src="../../../../assets/empty-cart.png">
     </div>
 
-</div>
 </div>
 
 <section *ngIf="cartCount> 0" class="main flex flex-row items-start w-[80rem] m-auto justify-between gap-first pb-14">
@@ -136,11 +134,30 @@
 
     </div>
 
-              <p class="p-2 font-bold  py-4"> 
-                {{ totalPrice| currency : 'EGP': 'symbol' : '1.0-0'}}
-            </p>
+
+
+      <p class="p-2 font-bold  py-4"> {{ totalPrice| currency : 'EGP'}}
+    </p>
+
+
+
 
 </div>
+
+
+<div class=" flex flex-col w-[19.469rem] h-full  items-center p-5 justify-start border-2 ">
+  <p class="font-semibold border-b-2">Order Summary</p>
+
+  <p class="p-2 font-bold  py-4"> {{ totalPrice| currency : 'EGP'}}
+</p>
+
+  <button class="inline-block w-[7rem] h-[2.5rem] bg-[#F66B0E] text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-[#fa924d] hover:shadow-lg focus:bg-[#F66B0E] focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#F66B0E] active:shadow-lg transition duration-150 ease-in-out ">Checkout!</button>
+  <!-- <button (click)="deleteCartItem(product)" type="button" data-mdb-ripple="true"
+  data-mdb-ripple-color="light"
+  class="inline-block w-[4rem] h-[1.5rem] bg-[#F66B0E] text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-[#fa924d] hover:shadow-lg focus:bg-[#F66B0E] focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#F66B0E] active:shadow-lg transition duration-150 ease-in-out">Remove
+</button> -->
+
+ </div>
 </section>
 
 <hr *ngIf="cartCount > 0" class="border-2 border-opacity-40 border-[#C4C4C4] m-auto w-[80.375rem] py-4 ">
