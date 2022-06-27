@@ -27,9 +27,7 @@ export class HomeComponent implements OnInit{
 
   constructor(public auth:AuthService , private cartService : CartService , private wishlistService : WishlistService) { 
 
-    // this.userName=localStorage.getItem('username');
-
-    // this.dataUser = JSON.parse(localStorage.getItem('userData') ||'{}');
+ 
     
     
     
@@ -68,13 +66,6 @@ export class HomeComponent implements OnInit{
     this.isLogin = false;
     }
 
-  // logout() {
-  //   localStorage.removeItem('name');
-  //   localStorage.removeItem('email');
-  //   localStorage.removeItem('phone');
-  //   localStorage.removeItem('isAdmin');
-  //   localStorage.removeItem('token');
-  // }
 
 
 
