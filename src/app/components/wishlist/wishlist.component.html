@@ -58,12 +58,15 @@
 
 <div class='w-[100%] flex flex-col items-center'>
 
-    <div *ngIf="Count === 0" class="w-full h-full my-[10.344rem] ">
-        <div class=" h-auto w-auto flex items-center justify-center">
-          <p class="text-[3rem]">Wishlist Is Empty !</p>
-        </div>
-      </div>
 
+
+      <div *ngIf="Count === 0" class="w-full h-full my-[10.344rem] ">
+      
+          <div class="flex justify-center items-start w-full  ">
+            <img  class="bg-cover inline-block hue-rotate-15   " src="../../../assets/empty-wishlist.png">
+          </div>
+      
+      </div>
 
     <div *ngIf="Count > 0" class="grid gap-x-first grid-cols-4">
 

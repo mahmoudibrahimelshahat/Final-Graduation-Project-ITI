@@ -58,50 +58,61 @@
 
 
 <div *ngIf="cartCount === 0" class="w-full h-full my-[10.344rem] ">
-  <div class=" h-auto w-auto flex items-center justify-center">
-    <p class="text-[3rem]">Cart Is Empty !</p>
-  </div>
+  <!-- <div class=" h-auto w-auto flex items-center justify-center">
+
+    <div class="flex justify-center items-start w-full  relative ">
+      <img  class="bg-cover inline-block opacity-60 " src="../../../../assets/kindpng_1749396.png">
+      <span class="text-[3rem] font-medium text-lightorange   bg-[white] text-center w-[20rem] z-10 absolute top-[20rem] rounded-md "> Empty ! </span> 
+    </div>
+
+  </div> -->
+
+  
+  <div *ngIf="cartCount === 0" class="w-full h-full my-[10.344rem] ">
+      
+    <div class="flex justify-center items-start w-full  ">
+      <img  class="bg-cover inline-block hue-rotate-15  " src="../../../../assets/empty-cart.png">
+    </div>
+
+</div>
 </div>
 
-<section *ngIf="cartCount> 0"  class="main flex flex-row items-start w-[80rem] m-auto justify-between gap-first pb-14">
+<section *ngIf="cartCount> 0" class="main flex flex-row items-start w-[80rem] m-auto justify-between gap-first pb-14">
 
 
-  
+
   <div class="flex flex-col border-[.01rem] border-[#C4C4C4]   p-5 box-content	">
-  
-    
-    
-      <div class="flex flex-row justify-between w-auto font-medium  ">
-        <p class="border-b-2">Shopping Cart</p>
-        <p class="border-b-2">Price</p>
-      </div>
-    
-  <!-- <hr class="border-b-[.01rem] w-[51rem]"> -->
-    
-      <div *ngFor="let product of productCart" class="w-auto my-[5rem] "> 
-         
-        <div class="flex flex-row w-auto  h-[7.813rem]  justify-between">
-          
+
+
+
+    <div class="flex flex-row justify-between w-auto font-medium  ">
+      <p class="border-b-2">Shopping Cart</p>
+      <p class="border-b-2">Price</p>
+    </div>
+
+    <!-- <hr class="border-b-[.01rem] w-[51rem]"> -->
+
+    <div *ngFor="let product of productCart" class="w-auto my-[5rem] ">
+
+      <div class="flex flex-row w-auto  h-[7.813rem]  justify-between">
+
         <div class="flex flex-row gap-x-[1rem] ">
-    
-          <div  class="w-[30%] ">
+
+          <div class="w-[30%] ">
             <img [src]="product.product.image" class="h-[auto]">
           </div>
-    
-    
-    
-        <div class="flex flex-col   items-start  gap-y-[.5rem]">
-    
-          <div class="flex flex-row gap-x-first">
-            <p class="form-label text-gray-700 font-medium">
-              Quantity
-            </p>
-    
-            <input [(ngModel)]="product.quantity"   
-            (input)="updateCartQuantity($event, product)"
 
-             type="number" class="
-              ring-0
+
+
+          <div class="flex flex-col   items-start  gap-y-[.5rem]">
+
+            <div class="flex flex-row gap-x-first">
+              <p class="form-label text-gray-700 font-medium">
+                Quantity
+              </p>
+
+              <input [(ngModel)]="product.quantity" (input)="updateCartQuantity($event, product)" type="number" class="
+              ring-[#F66B0E]
               form-control
               block
               w-[5rem]
@@ -115,43 +126,50 @@
               ease-in-out
               m-0
               focus:text-gray-700 focus:bg-white  focus:ring-0 " id="quantity" placeholder="Number input" />
-         </div>
-              <div class="flex flex-row gap-[.3rem] ">
-                <button (click)="deleteCartItem(product)"
-                  class="w-[3rem] h-[2rem]  text-[#F66B0E] font-bold focus:outline-none">Remove</button>
-              </div>
+            </div>
+            <div class="flex flex-row gap-[.3rem] ">
+
+              <button (click)="deleteCartItem(product)" type="button" data-mdb-ripple="true"
+                data-mdb-ripple-color="light"
+                class="inline-block w-[4rem] h-[1.5rem] bg-[#F66B0E] text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-[#fa924d] hover:shadow-lg focus:bg-[#F66B0E] focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#F66B0E] active:shadow-lg transition duration-150 ease-in-out">Remove
+              </button>
+            </div>
+          </div>
         </div>
+
+
+        <div>
+          <p class="text-center font-bold">{{product.quantity * product.product.price | currency : 'EGP'}} </p>
         </div>
-    
-         
-        
-    
-        <div><p class="text-center font-bold">{{product.quantity * product.product.price  | currency : 'EGP'}} </p></div>
-  
-        </div>
-    
+
+      </div>
+
     </div>
-    
-      </div> 
-    
-  
-  
-  
-  
-            <!-- order -->
-  
-            <div class=" flex flex-col w-[19.469rem] h-full  items-center p-5 justify-start border-2 ">
-              <p class="font-semibold border-b-2">Order Summary</p>
 
-              <p class="p-2 font-bold  py-4"> {{ totalPrice| currency : 'EGP'}}
-            </p>
+  </div>
 
-              <button class="w-[6rem] h-[2rem] text-white  bg-[#F66B0E] font-bold focus:outline-none" (click)="navigateToCheckout()">Checkout!</button>
 
-             </div>
-  
 
- 
+
+
+  <!-- order -->
+
+  <div class=" flex flex-col w-[19.469rem] h-full  items-center p-5 justify-start border-2 ">
+    <p class="font-semibold border-b-2">Order Summary</p>
+
+    <p class="p-2 font-bold  py-4"> {{ totalPrice| currency : 'EGP'}}
+    </p>
+
+
+    <button (click)="navigateToCheckout()" type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
+      class="inline-block w-[6rem] h-[2rem] bg-[#F66B0E] text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-[#fa924d] hover:shadow-lg focus:bg-[#F66B0E] focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#F66B0E] active:shadow-lg transition duration-150 ease-in-out">CheckOut!
+    </button>
+
+
+  </div>
+
+
+
 
 </section>
 
@@ -163,7 +181,7 @@
 
 
 
-<div *ngIf="cartCount > 0"  class="m-auto  w-[80rem] flex flex-row justify-between ">
+<div *ngIf="cartCount > 0" class="m-auto  w-[80rem] flex flex-row justify-between ">
   <p class="font-bold">
     Related Products
   </p>
@@ -174,7 +192,7 @@
 
 
 
-<div *ngFor="let product of productCart"  class="flex flex-row m-auto gap-first justify-center py-10 mb-4">
+<div *ngFor="let product of productCart" class="flex flex-row m-auto gap-first justify-center py-10 mb-4">
 
   <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1  text-[#F66B0E]  text[1rem] font-inter  ">
     <div class=" w-full relative">
@@ -190,7 +208,7 @@
     </div>
     <div class="w-full h-[9.875rem] flex flex-row justify-around bg-[#E3CAA5] bg-opacity-[8%]">
       <div class="flex flex-col justify-center">
-        <!-- <p class="text-[1.5rem] font-semibold "> {{product.product?.name}} </p> -->
+
         <p class="text-[1.125rem] font-normal text-black">{{ product.product?.price | currency : 'EGP '}} </p>
         <p-rating [(ngModel)]="product.product.rating" on [cancel]="false"></p-rating>
 
@@ -259,8 +277,8 @@
 
   <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1  text-[#F66B0E]  text[1rem] font-inter  ">
     <div class=" w-full relative">
-      <img [routerLink]="'/products/'+ product.product?._id" src="../../../../assets/Floral Pattern Crochet Sweater Vest.png"
-        class=" w-full h-[18.563rem] ">
+      <img [routerLink]="'/products/'+ product.product?._id"
+        src="../../../../assets/Floral Pattern Crochet Sweater Vest.png" class=" w-full h-[18.563rem] ">
 
 
       <i *ngIf="!updateCart" class="bi bi-suit-heart text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
