@@ -8,8 +8,8 @@
 
 </div>
 
-<div class="width-full h-full">
-<section *ngIf="cartCount> 0" class="relative flex flex-row items-start w-[80rem] m-auto justify-between  pb-14">
+<div class="width-full h-full mt-[3rem]">
+<section *ngIf="cartCount> 0" class="relative flex flex-row items-start w-[80rem] m-auto justify-between ">
 
 
 
@@ -17,7 +17,7 @@
 
 
 
-    <div class="flex flex-row justify-between w-auto font-medium px-3 border-b-2">
+    <div class="flex flex-row justify-between w-auto font-medium px-3 py-3 border-b-2">
       <p class="">Shopping Cart</p>
       <p class="">Price</p>
     </div>
@@ -95,8 +95,8 @@
 </div>
 
 
-<div class=" flex flex-col w-[19.469rem] h-full  items-center p-5 justify-start border-2 ">
-  <p class="font-semibold border-b-2">Order Summary</p>
+<div class=" flex flex-col w-[19.469rem] h-full  items-center p-5 justify-evenly gap-[.5rem] border-2 ">
+  <p class="font-semibold border-b-2 pt-5 ">Order Summary</p>
 
   <p class="p-2 font-bold  py-4"> {{ totalPrice| currency : 'EGP'}}
 </p>
@@ -109,22 +109,25 @@
 </div>
 
 
-<hr *ngIf="cartCount > 0" class="border-opacity-40 border-[#C4C4C4] m-auto w-[80.375rem] py-4 ">
+<hr class="  py-4 border-[#C4C4C4] m-auto w-[80.375rem] ">
 
 
-
-<div *ngIf="cartCount > 0" class="m-auto  w-[80rem] flex flex-row justify-between ">
+<div class="m-auto  w-[80rem] flex flex-row justify-between ">
   <p class="font-bold">
     Related Products
   </p>
   <p>
-    <a routerLink="/list" class="font-bold hover:no-underline hover:text-[#F66B0E]">See All</a>
+    <a routerLink="/productslist" class="font-bold hover:no-underline hover:text-[#F66B0E]">See All</a>
   </p>
 </div>
 
+<!-- <div class="flex flex-row m-auto gap-first justify-center py-10 ">
 
 
-<div *ngFor="let product of productCart | paginate: { itemsPerPage: 1, currentPage: p }" class="flex flex-row my-[10.344rem] gap-first justify-center mb-4">
+  <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1  text-[#F66B0E]  text[1rem] font-inter  "> -->
+
+
+<div *ngFor="let product of productCart | paginate: { itemsPerPage: 1, currentPage: p }" class="flex flex-row m-auto  gap-first justify-center py-10">
 
   <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1  text-[#F66B0E]  text[1rem] font-inter  ">
     <div class=" w-full relative">
