@@ -8,11 +8,27 @@ import { Injectable } from '@angular/core';
 export class CartService {
 
 
+  currentCategory : string  
+
+  idTransfer : BehaviorSubject<string> = new BehaviorSubject<string>(null)
+
   cart$: BehaviorSubject<Cart> = new BehaviorSubject<Cart>(this.getCartItem())
 
   constructor() {
 
 
+
+  }
+
+
+  categoryFilter(id : string) {
+    
+    this.currentCategory = id
+    this.idTransfer.next(this.currentCategory)
+
+    // this.CategoryId = id
+
+    // this.loadCategoryProducts(this.CategoryId)
 
   }
 

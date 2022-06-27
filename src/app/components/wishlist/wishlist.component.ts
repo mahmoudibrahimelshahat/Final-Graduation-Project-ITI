@@ -20,9 +20,9 @@ export class WishlistComponent implements OnInit {
 
   CategoryId: string
 
-  productList: Product[] = [];
-  categoriesList: Category[] = [];
-  categoryProduct: Product[] = []
+  // productList: Product[] = [];
+  // categoriesList: Category[] = [];
+  // categoryProduct: Product[] = []
   Count: number = 0;
   updateCart: boolean = false
 
@@ -36,8 +36,8 @@ export class WishlistComponent implements OnInit {
   ngOnInit(): void {
 
     this.getWishlist()
-    this.loadProduct();
-    this.loadCategories();
+    // this.loadProduct();
+    // this.loadCategories();
 
 
   }
@@ -96,54 +96,54 @@ export class WishlistComponent implements OnInit {
 
 
 
-  private loadProduct(selectedCategories?: string[]) {
+  // private loadProduct(selectedCategories?: string[]) {
 
-    console.log('this is selected ' + selectedCategories)
-    this.productService.getproducts(selectedCategories).subscribe((resProducts) => {
-      this.productList = resProducts;
-      console.log(this.productList + 'all');
+  //   console.log('this is selected ' + selectedCategories)
+  //   this.productService.getproducts(selectedCategories).subscribe((resProducts) => {
+  //     this.productList = resProducts;
+  //     console.log(this.productList + 'all');
 
-    });
-  }
-
-
-  private loadCategoryProducts(CategoryId?: string) {
-
-    // console.log('this is selected ' +CategoryId)
-    this.productService.getSingleCategoryproducts(CategoryId).subscribe((resProducts) => {
-      this.productList = resProducts;
-      console.log(this.productList + 'hello');
-
-    });
-  }
+  //   });
+  // }
 
 
-  private loadCategories() {
-    this.categoriesService.getCategories().subscribe((resCategories) => {
-      this.categoriesList = resCategories;
-      // console.log(this.categoriesList);
+  // private loadCategoryProducts(CategoryId?: string) {
 
-    });
-  }
+  //   // console.log('this is selected ' +CategoryId)
+  //   this.productService.getSingleCategoryproducts(CategoryId).subscribe((resProducts) => {
+  //     this.productList = resProducts;
+  //     console.log(this.productList + 'hello');
 
-
-
-  categoriesFilter() {
-    const selectedCategories = this.categoriesList
-      .filter(category => category.checked)
-      .map(category => category._id)
-
-    this.loadProduct(selectedCategories)
-  }
+  //   });
+  // }
 
 
-  categoryFilter(id: string) {
+  // private loadCategories() {
+  //   this.categoriesService.getCategories().subscribe((resCategories) => {
+  //     this.categoriesList = resCategories;
+  //     // console.log(this.categoriesList);
 
-    this.CategoryId = id
+  //   });
+  // }
 
-    this.loadCategoryProducts(this.CategoryId)
 
-  }
+
+  // categoriesFilter() {
+  //   const selectedCategories = this.categoriesList
+  //     .filter(category => category.checked)
+  //     .map(category => category._id)
+
+  //   this.loadProduct(selectedCategories)
+  // }
+
+
+  // categoryFilter(id: string) {
+
+  //   this.CategoryId = id
+
+  //   this.loadCategoryProducts(this.CategoryId)
+
+  // }
   
 
   addToWishlist(product : CartProduct){

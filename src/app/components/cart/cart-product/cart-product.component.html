@@ -1,4 +1,4 @@
-<nav class="bg-white py-0">
+<!-- <nav class="bg-white py-0">
 
   <div class="grid grid-flow-col grid-cols-1 lg:grid-cols-1 justify-between w-[90%] m-auto items-center">
 
@@ -53,7 +53,7 @@
 
   </div>
 
-</nav>
+</nav> -->
 
 
 
@@ -66,11 +66,12 @@
 
 </div>
 
-<section *ngIf="cartCount> 0" class="main flex flex-row items-start w-[80rem] m-auto justify-between gap-first pb-14">
+<div class="width-full h-full">
+<section *ngIf="cartCount> 0" class="relative flex flex-row items-start w-[80rem] m-auto justify-between gap-first pb-14">
 
 
 
-  <div class="flex flex-col border-[.01rem] border-[#C4C4C4]   p-5 box-content	">
+  <div class="flex flex-col w-[60%] h-[30rem] border-2 border-opacity-40 border-[#C4C4C4] p-5 box-content ">
 
 
 
@@ -80,14 +81,15 @@
     </div>
 
 
-    <div *ngFor="let product of productCart" class="w-auto my-[5rem] ">
+    <div *ngFor="let product of productCart | paginate: { itemsPerPage: 2, currentPage: p }" class="w-auto my-[5rem] ">
 
       <div class="flex flex-row w-auto  h-[7.813rem]  justify-between">
 
-        <div class="flex flex-row gap-x-[1rem] ">
+        <div class="flex flex-row items-start gap-x-[1rem]  ">
 
           <div class="w-[30%] ">
-            <img [src]="product.product.image" class="h-[auto]">
+            <!-- <img [src]="product.product.image" class="h-[auto] "> -->
+            <img src="../../../../assets/Floral Pattern Crochet Sweater Vest.png"  class="h-[auto] ">
           </div>
 
 
@@ -132,13 +134,19 @@
 
       </div>
 
+
+
+  
     </div>
 
 
+    <div class=" absolute top-[80%] right-[20%] mr-[10.344rem] my-4 ">
+      <pagination-controls (pageChange)="p = $event">  </pagination-controls>
+    </div>
 
-      <p class="p-2 font-bold  py-4"> {{ totalPrice| currency : 'EGP'}}
-    </p>
-
+    
+      <!-- <p class="p-2 font-bold  py-4"> {{ totalPrice| currency : 'EGP'}}
+    </p> -->
 
 
 
@@ -152,13 +160,12 @@
 </p>
 
   <button (click)="navigateToCheckout()" class="inline-block w-[7rem] h-[2.5rem] bg-[#F66B0E] text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-[#fa924d] hover:shadow-lg focus:bg-[#F66B0E] focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#F66B0E] active:shadow-lg transition duration-150 ease-in-out ">Checkout!</button>
-  <!-- <button (click)="deleteCartItem(product)" type="button" data-mdb-ripple="true"
-  data-mdb-ripple-color="light"
-  class="inline-block w-[4rem] h-[1.5rem] bg-[#F66B0E] text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-[#fa924d] hover:shadow-lg focus:bg-[#F66B0E] focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#F66B0E] active:shadow-lg transition duration-150 ease-in-out">Remove
-</button> -->
-
  </div>
+
+
 </section>
+</div>
+
 
 <hr *ngIf="cartCount > 0" class="border-2 border-opacity-40 border-[#C4C4C4] m-auto w-[80.375rem] py-4 ">
 
@@ -175,9 +182,9 @@
 
 
 
-<div *ngFor="let product of productCart" class="flex flex-row m-auto gap-first justify-center py-10 mb-4">
+<div *ngFor="let product of productCart | paginate: { itemsPerPage: 1, currentPage: p }" class="flex flex-row m-auto gap-first justify-center py-10 mb-4  ">
 
-  <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1  text-[#F66B0E]  text[1rem] font-inter  ">
+  <div class=" flex flex-col  border-1  text-[#F66B0E]  text[1rem] font-inter  ">
     <div class=" w-full relative">
       <img [routerLink]="'/products/'+ product.product?._id" src="../../../../assets/Bear Cardigan.png"
         class=" w-full h-[18.563rem] ">

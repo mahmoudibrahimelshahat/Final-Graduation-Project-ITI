@@ -1,3 +1,4 @@
+import { CartService } from 'src/app/services/cart/cart.service';
 
 
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
@@ -29,13 +30,14 @@ export class ProductsListComponent implements OnInit {
   @Output()
   searchTextChanged : EventEmitter<string> = new EventEmitter<string>()
 
-  constructor(private productService: ProductService, private categoriesService: CategoriesService) { }
+  constructor(private productService: ProductService, private categoriesService: CategoriesService ,private  CartService : CartService) { }
 
   ngOnInit(): void {
     this.loadProduct();
     this.loadCategories();
     // this.categoriesFilter();
 
+this.categoryFilter0()
   }
 
 
@@ -85,14 +87,26 @@ export class ProductsListComponent implements OnInit {
 
   }
 
-  categoryFilter(id : string) {
+  // categoryFilter(id : string) {
 
-    this.CategoryId = id
+  //   this.CategoryId = id
 
-    this.loadCategoryProducts(this.CategoryId)
+  //   this.loadCategoryProducts(this.CategoryId)
+
+
+  // }
+
+
+  categoryFilter0() {
+
+this.CartService.idTransfer.subscribe(id=>{
+  this.loadCategoryProducts(id)
+
+})
 
 
   }
+  
 
 
 }

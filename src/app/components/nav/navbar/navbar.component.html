@@ -26,7 +26,7 @@
           <ul class="categories-list">
             <li *ngFor="let category of categoriesList">
               <a  [routerLink]="'/categories/'+ category?._id"
-                (click)='categoryFilter(category._id)' class="   hover:no-underline">
+                (click)='categoryFilter(category._id)' class=" hover:no-underline">
                 {{category.name}}
               </a>
             </li>

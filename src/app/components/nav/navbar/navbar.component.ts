@@ -1,3 +1,4 @@
+import { BehaviorSubject } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/models/category';
 import { Product } from 'src/app/models/product';
@@ -13,43 +14,22 @@ import { ProductService } from 'src/app/services/product/products-service.servic
 export class NavbarComponent implements OnInit {
   CategoryId: string
 
-  productList: Product[] = [];
   categoriesList: Category[] = [];
-  categoryProduct: Product[] = []
   // cartCount: number = 0;
-
-
-  error: any = '';
+  currentCategory : string  
 
 
   constructor(private productService: ProductService, private categoriesService: CategoriesService, private cartService: CartService) { }
   ngOnInit(): void {
-    this.loadProduct();
+    // this.loadProduct();
     this.loadCategories();
   }
 
 
   
-  private loadProduct(selectedCategories?: string[]) {
-
-    console.log('this is selected ' + selectedCategories)
-    this.productService.getproducts(selectedCategories).subscribe((resProducts) => {
-      this.productList = resProducts;
-      console.log(this.productList +'all');
-
-    });
-  }
 
 
-  private loadCategoryProducts(CategoryId?: string) {
 
-    // console.log('this is selected ' +CategoryId)
-    this.productService.getSingleCategoryproducts(CategoryId).subscribe((resProducts) => {
-      this.productList = resProducts;
-      console.log(this.productList + 'hello');
-
-    });
-  }
 
 
   private loadCategories() {
@@ -62,20 +42,16 @@ export class NavbarComponent implements OnInit {
 
 
 
-  categoriesFilter() {
-    const selectedCategories = this.categoriesList
-      .filter(category => category.checked)
-      .map(category => category._id)
-
-    this.loadProduct(selectedCategories)
-  }
 
 
   categoryFilter(id : string) {
 
-    this.CategoryId = id
+    this.currentCategory = id
+    this.cartService.idTransfer.next(this.currentCategory)
 
-    this.loadCategoryProducts(this.CategoryId)
+    // this.CategoryId = id
+
+    // this.loadCategoryProducts(this.CategoryId)
 
 
   }
