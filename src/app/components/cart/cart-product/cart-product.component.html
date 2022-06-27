@@ -58,16 +58,7 @@
 
 
 <div *ngIf="cartCount === 0" class="w-full h-full my-[10.344rem] ">
-  <!-- <div class=" h-auto w-auto flex items-center justify-center">
 
-    <div class="flex justify-center items-start w-full  relative ">
-      <img  class="bg-cover inline-block opacity-60 " src="../../../../assets/kindpng_1749396.png">
-      <span class="text-[3rem] font-medium text-lightorange   bg-[white] text-center w-[20rem] z-10 absolute top-[20rem] rounded-md "> Empty ! </span> 
-    </div>
-
-  </div> -->
-
-  
   <div *ngIf="cartCount === 0" class="w-full h-full my-[10.344rem] ">
       
     <div class="flex justify-center items-start w-full  ">
@@ -90,7 +81,6 @@
       <p class="border-b-2">Price</p>
     </div>
 
-    <!-- <hr class="border-b-[.01rem] w-[51rem]"> -->
 
     <div *ngFor="let product of productCart" class="w-auto my-[5rem] ">
 
@@ -146,36 +136,12 @@
 
     </div>
 
-  </div>
+              <p class="p-2 font-bold  py-4"> 
+                {{ totalPrice| currency : 'EGP': 'symbol' : '1.0-0'}}
+            </p>
 
-
-
-
-
-  <!-- order -->
-
-  <div class=" flex flex-col w-[19.469rem] h-full  items-center p-5 justify-start border-2 ">
-    <p class="font-semibold border-b-2">Order Summary</p>
-
-    <p class="p-2 font-bold  py-4"> {{ totalPrice| currency : 'EGP'}}
-    </p>
-
-
-    <button (click)="navigateToCheckout()" type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
-      class="inline-block w-[6rem] h-[2rem] bg-[#F66B0E] text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-[#fa924d] hover:shadow-lg focus:bg-[#F66B0E] focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#F66B0E] active:shadow-lg transition duration-150 ease-in-out">CheckOut!
-    </button>
-
-
-  </div>
-
-
-
-
+</div>
 </section>
-
-
-
-
 
 <hr *ngIf="cartCount > 0" class="border-2 border-opacity-40 border-[#C4C4C4] m-auto w-[80.375rem] py-4 ">
 
