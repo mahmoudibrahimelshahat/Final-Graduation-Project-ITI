@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { CartItem } from './../../models/cart';
+import { Product } from './../../models/product';
+import { CartService } from './../../services/cart/cart.service';
+import { WishlistService } from 'src/app/services/whishlist/whishlist.service';
+import { Component, OnInit, Input } from '@angular/core';
 import { User } from 'src/app/models/user.type';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -14,7 +18,14 @@ export class HomeComponent implements OnInit{
   isLogin:boolean=false;
   dataUser:User | null;
 
-  constructor(public auth:AuthService) { 
+  
+  @Input()
+  productItem: Product
+
+  updateCart: boolean = false
+
+
+  constructor(public auth:AuthService , private cartService : CartService , private wishlistService : WishlistService) { 
 
     // this.userName=localStorage.getItem('username');
 
@@ -39,6 +50,8 @@ export class HomeComponent implements OnInit{
     this.user = localStorage.getItem('dataUser');
     // console.log(this.user);
     // console.log(this.userName);
+    this.cartService.initCartLocalStorage();
+    this.wishlistService.initWishlistLocalStorage();
 
 
   }
@@ -62,4 +75,62 @@ export class HomeComponent implements OnInit{
   //   localStorage.removeItem('isAdmin');
   //   localStorage.removeItem('token');
   // }
+
+
+
+
+
+
+
+
+
+
+
+
+   addProductToCart()
+   {
+    const cartItem : CartItem = 
+  
+    {
+      productId :  this.productItem._id,
+      quantity : 1
+    }
+  
+    return this.cartService.setCartItem(cartItem)
+  }
+  
+  addToWishlist(){
+
+    if(this.updateCart){
+      this.updateCart = false
+    }else
+    {this.updateCart = true}
+
+
+    // this.addUpdateStatus()
+    const cartItem : CartItem = 
+  
+    {
+      productId :  this.productItem._id,
+      quantity : 1
+    }
+    return this.wishlistService.addProductToWishlist(cartItem , this.updateCart );
+  }
+  
+  
+addUpdateStatus(){
+
+  const updated : string = JSON.stringify(this.updateCart)
+  localStorage.setItem('update' , updated)
+
 }
+
+getUpdateStatus(){
+  const updated : string = localStorage.getItem('update')
+  this.updateCart  = JSON.parse(updated);
+}
+}
+
+
+
+
