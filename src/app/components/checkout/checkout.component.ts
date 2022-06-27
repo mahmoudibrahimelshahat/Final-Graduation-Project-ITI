@@ -25,6 +25,9 @@ export class CheckoutComponent implements OnInit {
   cart: MenuItem;
   cartCount = 0;
 
+  dataUser:User;
+  userId:any;
+
 totalPrice: number
 
 endSub$: Subject<any> = new Subject<void>()
@@ -41,13 +44,14 @@ endSub$: Subject<any> = new Subject<void>()
   checkoutFormGroup: FormGroup;
   isSubmitted = false;
   orderItems: CartItem[] = [];
-  userId:User;
+ 
   userName:string | null;
- dataUser:User;
+
 
   ngOnInit(): void {
     this.dataUser = JSON.parse(localStorage.getItem('dataUser')||'{}');
-    this.userName=this.dataUser?.userName;
+    this.userId=this.dataUser?.userId;
+
     this.items = [
       {label: 'Shopping Cart', routerLink: '/cart'},
       {label: 'Checkout', routerLink: '/checkout'},
@@ -60,6 +64,8 @@ endSub$: Subject<any> = new Subject<void>()
     this._getCartDetails()
     this.getOrderSummary()
   }
+
+
 
   private _initCheckoutForm() {
     this.checkoutFormGroup = this.formBuilder.group({
@@ -97,7 +103,7 @@ endSub$: Subject<any> = new Subject<void>()
     }
 
    
-
+console.log(this.userId);
  
 
     const order: Order = {
