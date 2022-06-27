@@ -5,6 +5,9 @@ import { WishlistService } from 'src/app/services/whishlist/whishlist.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from 'src/app/models/user.type';
 import { AuthService } from 'src/app/services/auth.service';
+import 'flowbite';
+import * as AOS from'aos';
+import { ProductService } from 'src/app/services/product/products-service.service';
 
 @Component({
   selector: 'app-home',
@@ -22,10 +25,13 @@ export class HomeComponent implements OnInit{
   @Input()
   productItem: Product
 
-  updateCart: boolean = false
+  updateCart: boolean = false;
+  productList:Product[]=[]
 
 
-  constructor(public auth:AuthService , private cartService : CartService , private wishlistService : WishlistService) { 
+  constructor(public auth:AuthService , private cartService : CartService ,
+               private wishlistService : WishlistService ,
+               private ProductService:ProductService  ) { 
 
  
     
@@ -45,11 +51,15 @@ export class HomeComponent implements OnInit{
   
   
   ngOnInit(): void {
+    AOS.init();
     this.user = localStorage.getItem('dataUser');
     // console.log(this.user);
     // console.log(this.userName);
     this.cartService.initCartLocalStorage();
     this.wishlistService.initWishlistLocalStorage();
+    this.ProductService.getproducts().subscribe(products=>{
+      this.productList=products
+    })
 
 
   }

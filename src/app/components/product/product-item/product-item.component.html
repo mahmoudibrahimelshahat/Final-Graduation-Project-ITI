@@ -1,6 +1,7 @@
 <div class=" flex flex-col  w-[18rem] h-[ 25rem] mb-9 text-[#F66B0E] font-inter mt-[4rem] ">
     <div class=" w-full relative">
-        <img [routerLink]="'/products/'+ productItem?._id" [src]="productItem?.image" class=" w-full h-[18.563rem] max-w-xs rounded-t-lgg hover:scale-105 transition duration-300 ease-in-out rounded-t-lg ">
+        <img [routerLink]="'/products/'+ productItem?._id" [src]="productItem?.image"
+            class=" w-full h-[18.563rem] max-w-xs rounded-t-lgg hover:scale-105 transition duration-300 ease-in-out rounded-t-lg ">
 
 
         <i *ngIf="!updateCart" class="bi bi-suit-heart text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
@@ -36,5 +37,3 @@ font-weight: 600;
 font-size: 24px;
 line-height: 29px;
 -->
-
-

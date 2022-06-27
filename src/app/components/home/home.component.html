@@ -1,85 +1,161 @@
-<!-- <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
-  <div class="container flex flex-wrap justify-between items-center mx-auto">
-    <a href="https://flowbite.com" class="flex items-center">
-      <img src="/docs/images/logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo">
-      <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
-    </a>
-    <div class="flex md:order-2">
-      <button type="button" *ngIf="!isLogin" routerLink="/login"
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</button>
-      <button type="button" *ngIf="!isLogin" routerLink="/register"
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register</button>
+<!-- header -->
+<header id="default-carousel" class="relative" data-carousel="static">
+  <!-- Carousel wrapper -->
+  <div class="overflow-hidden relative lg:h-[650px] md:h-[400px] h-80     ">
+    <!-- Item 1 -->
+    <div class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-0 flex "
+      data-carousel-item="">
 
-      <button data-collapse-toggle="mobile-menu-4" type="button"
-        class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-        aria-controls="mobile-menu-4" aria-expanded="false">
-        <span class="sr-only">Open main menu</span>
-        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd"
-            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-            clip-rule="evenodd"></path>
-        </svg>
-        <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd"
-            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-            clip-rule="evenodd"></path>
-        </svg>
-      </button>
+      <img src="../../../assets/homeheader.png"
+        class="flex absolute top-1/2 left-1/2 w-full  h-full -translate-x-1/2 -translate-y-1/2 z-0" alt="...">
+      <div class="bg-black bg-opacity-[0.2] h-full z-10  absolute top-0 bottom-0 right-0 left-0"></div>
+
+      <div data-aos="zoom-in-up" data-aos-duration="2000"
+        class="w-[35%] sm:w-[30%] md:w-[25%] m-auto flex  z-30  relative ">
+        <img src="../../../assets/Group 529.svg">
+      </div>
+
     </div>
-    <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-4">
-      <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
-        <li>
-          <a href="#"
-            class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-            routerLink="/" *ngIf="isLogin" aria-current="page">Home</a>
-        </li>
+    <!-- Item 2 -->
+    <div class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-0 flex "
+      data-carousel-item="">
+      <img src="../../../assets/homeheader2.png"
+        class="flex absolute top-1/2 left-1/2 w-full  h-full -translate-x-1/2 -translate-y-1/2 z-0" alt="...">
+      <div class="bg-black bg-opacity-[0.2] h-full z-10  absolute top-0 bottom-0 right-0 left-0"></div>
+      <div class="w-[30%] sm:w-[30%] md:w-[25%] m-auto flex  z-30  relative ">
+        <img src="../../../assets/Group 529.svg">
+      </div>
 
-        <li>
-          <a class="block py-2 pr-4 pl-3 text-white  cursor-pointer bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-            routerLink="/profile" *ngIf="isLogin" aria-current="page">Profile</a>
-        </li>
+    </div>
 
-        <li>
-          <a class="block py-2 pr-4 pl-3 text-white  cursor-pointer bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-            routerLink="/about" *ngIf="isLogin" aria-current="page">about</a>
-        </li>
+    <!-- Item 3 -->
+    <div class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-0 flex "
+      data-carousel-item="">
+      <img src="../../../assets/homeheader3.png"
+        class="flex absolute top-1/2 left-1/2 w-full  h-full -translate-x-1/2 -translate-y-1/2 z-0" alt="...">
+      <div class="bg-black bg-opacity-[0.2] h-full z-10  absolute top-0 bottom-0 right-0 left-0"></div>
 
-        <li>
-          <a class="block py-2 pr-4 pl-3 text-white  cursor-pointer bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" 
-          routerLink="/contact" *ngIf="isLogin" aria-current="page">contact</a>
-          </li>
+      <div class="w-[30%] sm:w-[30%] md:w-[25%] m-auto flex  z-30  relative ">
+        <img src="../../../assets/Group 529.svg">
+      </div>
 
-          <li>
-            <a class="block py-2 pr-4 pl-3 text-white  cursor-pointer bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" 
-            routerLink="/list" *ngIf="isLogin" aria-current="page">Products</a>
-            </li>
-
-            <li>
-              <a class="block py-2 pr-4 pl-3 text-white  cursor-pointer bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" 
-              routerLink="/cart" *ngIf="isLogin" aria-current="page">cart</a>
-              </li>
-              <li>
-                <a class="block py-2 pr-4 pl-3 text-white  cursor-pointer bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" 
-                routerLink="/whishlist" *ngIf="isLogin" aria-current="page">whishlist</a>
-                </li>
-
-        <li>
-          <a class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0
-     md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700
-      dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-            {{userName}}
-          </a>
-        </li>
-
-        <li>
-          <a href="#"
-            class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
-        </li>
-        <li>
-          <a *ngIf="isLogin" (click)="isLogout()"
-            class="block py-2 pr-4 pl-3 text-gray-700 border-b cursor-pointer border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Logout</a>
-        </li>
-      </ul>
     </div>
   </div>
-</nav> -->
+  <!-- Slider indicators -->
+  <div class="flex absolute bottom-9 left-1/2 z-30 space-x-3 -translate-x-1/2">
+    <button type="button" class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-white dark:bg-gray-800" aria-current="true"
+      aria-label="Slide 1" data-carousel-slide-to="0"></button>
+    <button type="button"
+      class="w-2 h-2 md:w-3 md:h-3  rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
+      aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+    <button type="button"
+      class="w-2 h-2 md:w-3 md:h-3  rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
+      aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+  </div>
+  <!-- Slider controls -->
+  <button type="button"
+    class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none"
+    data-carousel-prev="prev()">
+    <span
+      class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-[#f66b0e]/60 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+      <svg class="w-5 h-5 text-[#f66b0e] sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor"
+        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+      </svg>
+      <span class="hidden">Previous</span>
+    </span>
+  </button>
+  <button type="button"
+    class="flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none"
+    data-carousel-next="next()">
+    <span
+      class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-[#f66b0e]/60 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+      <svg class="w-5 h-5 text-[#f66b0e] sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor"
+        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+      </svg>
+      <span class="hidden">Next</span>
+    </span>
+  </button>
+</header>
+
+
+<!-- just for you section -->
+<section class=" mt-10">
+  <div class="text-center my-14 leading-8">
+    <div class="text-slate-700 text-2xl md:text-3xl  font-medium">Just For You</div>
+    <div class="text-slate-500 text-[16px] font-medium">Making & crafting</div>
+  </div>
+  <div class="md:flex-row md:flex w-[90%] m-auto  gap-5 items-start">
+    <div class=" md:w-6/12 flex justify-center mb-10 " data-aos="zoom-in" data-aos-duration="2000">
+      <img class="lg:w-[70%] sm:w-[80%] w-[70%]" src="../../../assets/Group 530.svg">
+    </div>
+    <div class="md:w-6/12 flex flex-col justify-center md:justify-start" data-aos="fade-up" data-aos-duration="2000">
+      <div class="w-[100%] ">
+        <img class="w-fit " src="../../../assets/justForyou.png">
+      </div>
+      <div class="flex justify-between mt-8 gap-3">
+        <div class="flex flex-col lg:w-5/12 text-slate-600">
+          <span class="font-medium whitespace-nowrap">10% OFF on Soap section</span>
+          <span class=" whitespace-nowrap">Your Next Purchase</span>
+        </div>
+        <button routerLink="/list" class="capitalize bg-[#f66b0e] w-5/12 lg:w-4/12 leading-[0.5px] text-white border-[0.5px]   whitespace-nowrap  hover:bg-white 
+              hover:border-[#f66b0e] hover:scale-105 hover:text-[#f66b0e] transition-all duration-200 ">shop now
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- new collection break section -->
+<section class="relative my-20 ">
+
+  <div class="relative">
+    <img src="../../../assets/newCollection.png" class="block " alt="...">
+    <div class="bg-black bg-opacity-[0.2] h-full z-10 py-8 absolute top-0 right-0 left-0"></div>
+  </div>
+
+  <div
+    class="absolute z-50  top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] flex flex-col text-center py-10">
+    <span class="capitalize text-slate-700 text-lg lg:text-2xl md:my-3">new collection</span>
+    <span class="uppercase font-medium text-base md:text-lg text-slate-700">40% off </span>
+    <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="800" class="">
+      <button routerLink="/list" class=" w-full  text:[14px] md:text-base  my-2 md:my-5 capitalize bg-[#f66b0e]  px:[20px] md:px-16 py-3 text-white border-[0.5px] border-transparent  whitespace-nowrap  hover:bg-white 
+      hover:border-[#f66b0e] hover:scale-105 hover:text-[#f66b0e] transition-all duration-200">shop now
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<!-- products section -->
+<div class="flex  w-[90%] gap-5 m-auto flex-wrap justify-center">
+  <div *ngFor="let productItem of productList |slice:0:8"
+    class="shadow-md flex flex-col  md:w-[45%] lg:w-[20%] h-[ 25rem] mb-9 text-[#F66B0E] font-inter mt-14 rounded-lg ">
+    <div class=" rounded-t-lg w-full relative overflow-hidden">
+      <img [routerLink]="'/products/'+ productItem?._id" [src]="productItem?.image"
+        class="  w-full h-[300px] max-w-xs rounded-t-lgg hover:scale-105 transition duration-300 ease-in-out rounded-t-lg ">
+
+
+      <i *ngIf="!updateCart" class="bi bi-suit-heart text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
+        (click)="addToWishlist()"></i>
+      <i *ngIf="updateCart" class="bi bi-suit-heart-fill text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
+        (click)="addToWishlist()"></i>
+
+    </div>
+    <div class="w-full flex flex-row justify-around bg-[#f5f5f5] bg-opacity-[8%]   py-5 ">
+      <div class="flex flex-col justify-center gap-3 ">
+        <p class="text-[16px] font-semibold "> {{productItem?.name}} </p>
+        <p class="text-[16px] font-normal text-black">{{ productItem?.price | currency : 'EGP '}} </p>
+        <p-rating [(ngModel)]="productItem.rating" on [cancel]="false"></p-rating>
+
+      </div>
+      <div class="flex flex-col justify-center">
+        <i class="bi bi-handbag text-2xl hover:cursor-pointer" (click)="addProductToCart()"> </i>
+      </div>
+    </div>
+
+  </div>
+</div>
