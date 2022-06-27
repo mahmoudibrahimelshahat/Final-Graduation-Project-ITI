@@ -8,13 +8,12 @@
 
 </div>
 
-<div class="width-full h-full mt-[3rem]">
-<section *ngIf="cartCount> 0" class="relative flex flex-row items-start w-[80rem] m-auto justify-between ">
+<div class="w-[100%] h-[100%] mt-[3rem]  ">
+<section *ngIf="cartCount> 0" class="relative flex flex-row items-start w-[80rem] m-auto justify-between lg:w-[80rem] md:w-[70rem] sm:w-[60rem]  ">
 
 
 
-  <div class="flex flex-col w-[70%] h-[35rem] border-2 border-opacity-40 border-[#C4C4C4] p-5 box-content ">
-
+  <div class="flex flex-col w-[70%] h-[35rem] border-2 border-opacity-40 border-[#C4C4C4] pt-5 px-5 box-content lg:w-[70%] md:w-[65%] sm:w-[60%] lg:h-[90%]">
 
 
     <div class="flex flex-row justify-between w-auto font-medium px-3 py-3 border-b-2">
@@ -30,7 +29,7 @@
         <div class="flex flex-row items-start gap-x-[1rem]  ">
 
           <div class="w-[30%] ">
-            <!-- <img [src]="product.product.image" class="h-[auto] "> -->
+            <!-- <img [src]="product.product.image" class=" max-w-full h-auto rounded-lg"> -->
             <img src="../../../../assets/Floral Pattern Crochet Sweater Vest.png"  class=" max-w-full h-auto rounded-lg">
           </div>
 
@@ -109,7 +108,7 @@
 </div>
 
 
-<hr class="  py-4 border-[#C4C4C4] m-auto w-[80.375rem] ">
+<hr class="  pb-4  border-[#C4C4C4] m-auto w-[80.375rem] ">
 
 
 <div class="m-auto  w-[80rem] flex flex-row justify-between ">
@@ -129,7 +128,7 @@
 
 <div *ngFor="let product of productCart | paginate: { itemsPerPage: 1, currentPage: p }" class="flex flex-row m-auto  gap-first justify-center py-10">
 
-  <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1  text-[#F66B0E]  text[1rem] font-inter  ">
+  <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1  text-[#F66B0E]  text[1rem] font-inter lg:w-[18rem] md:w-[12rem] sm:[5rem] ">
     <div class=" w-full relative">
       <img [routerLink]="'/products/'+ product.product?._id" [src]="product.product?.image"
         class=" w-full h-[18.563rem] rounded-t-lg ">
@@ -157,7 +156,7 @@
 
 
 
-  <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1  text-[#F66B0E]  text[1rem] font-inter  ">
+  <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1  text-[#F66B0E]  text[1rem] font-inter lg:w-[18rem] md:w-[12rem] sm:[5rem] ">
     <div class=" w-full relative">
       <img [routerLink]="'/products/'+ product.product?._id" [src]="product.product?.image"
         class=" w-full h-[18.563rem] rounded-t-lg ">
@@ -185,7 +184,7 @@
 
 
 
-  <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1  text-[#F66B0E]  text[1rem] font-inter  ">
+  <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1  text-[#F66B0E]  text[1rem] font-inter lg:w-[18rem] md:w-[12rem] sm:[5rem] ">
     <div class=" w-full relative">
       <img [routerLink]="'/products/'+ product.product?._id" [src]="product.product?.image"
         class=" w-full h-[18.563rem] rounded-t-lg ">
@@ -215,7 +214,7 @@
 
 
   
-  <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1  text-[#F66B0E]  text[1rem] font-inter  ">
+  <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1  text-[#F66B0E]  text[1rem] font-inter lg:w-[18rem] md:w-[12rem] sm:[5rem]  ">
     <div class=" w-full relative">
       <img [routerLink]="'/products/'+ product.product?._id" [src]="product.product?.image"
         class=" w-full h-[18.563rem] rounded-t-lg ">

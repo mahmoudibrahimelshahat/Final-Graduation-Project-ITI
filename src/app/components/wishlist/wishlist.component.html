@@ -3,7 +3,7 @@
 <div class="flex flex-row  ">
 <app-side-nav></app-side-nav>
 
-<div class='w-[100%] flex flex-col items-center justify-start'>
+<div class='w-full flex flex-col items-center justify-start '>
 
       <div *ngIf="Count === 0" class="w-full h-full my-[10.344rem] ">
       
@@ -13,9 +13,9 @@
       
       </div>
 
-    <div *ngIf="Count > 0" class="grid gap-x-first grid-cols-3 m-10">
+    <div *ngIf="Count > 0" class="grid gap-x-first grid-cols-3 m-10 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
 
-        <div  class="flex flex-wrap" *ngFor="let product of  wishlistProducts  | paginate: { itemsPerPage: 3, currentPage: p}">
+        <div  class="flex" *ngFor="let product of  wishlistProducts  | paginate: { itemsPerPage: 3, currentPage: p}">
 
             <app-product-item [productItem]="product.product"></app-product-item>
         </div>
@@ -26,7 +26,7 @@
     </div>
 
 
-    <div class=" absolute text-center top-[100%] right-[10rem]  mt-8">
+    <div class=" absolute text-center top-[100%] right-[10rem]  mt-8 md:invisible	sm:invisible ">
         <pagination-controls (pageChange)="p = $event">  </pagination-controls>
     </div>
 
