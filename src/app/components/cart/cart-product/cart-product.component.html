@@ -1,5 +1,5 @@
 
-<div *ngIf="cartCount === 0" class="w-full h-full my-[10.344rem] ">
+<div *ngIf="cartCount === 0" class="w-[100%] h-full my-[10.344rem] m-auto ">
 
       
     <div class="flex justify-center items-start w-full  ">
@@ -31,7 +31,7 @@
 
           <div class="w-[30%] ">
             <!-- <img [src]="product.product.image" class="h-[auto] "> -->
-            <img src="../../../../assets/Floral Pattern Crochet Sweater Vest.png"  class="h-[auto] ">
+            <img src="../../../../assets/Floral Pattern Crochet Sweater Vest.png"  class=" max-w-full h-auto rounded-lg">
           </div>
 
 
@@ -124,12 +124,12 @@
 
 
 
-<div *ngFor="let product of productCart | paginate: { itemsPerPage: 1, currentPage: p }" class="flex flex-row m-auto gap-first justify-center py-10 mb-4  ">
+<div *ngFor="let product of productCart | paginate: { itemsPerPage: 1, currentPage: p }" class="flex flex-row my-[10.344rem] gap-first justify-center mb-4">
 
   <div class=" flex flex-col  border-1  text-[#F66B0E]  text[1rem] font-inter  ">
     <div class=" w-full relative">
       <img [routerLink]="'/products/'+ product.product?._id" src="../../../../assets/Bear Cardigan.png"
-        class=" w-full h-[18.563rem] ">
+        class=" h-[18.563rem] max-w-full  rounded-lg">
 
 
       <i *ngIf="!updateCart" class="bi bi-suit-heart text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
@@ -157,7 +157,7 @@
   <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1 text-[#F66B0E]  text[1rem] font-inter  ">
     <div class=" w-full relative">
       <img [routerLink]="'/products/'+ product.product?._id" src="../../../../assets/image 29.png"
-        class=" w-full h-[18.563rem] bg-contain">
+        class="h-[18.563rem] max-w-full  rounded-lg">
 
 
       <i *ngIf="!updateCart" class="bi bi-suit-heart text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
@@ -183,7 +183,7 @@
   <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1  text-[#F66B0E]  text[1rem] font-inter  ">
     <div class=" w-full relative">
       <img [routerLink]="'/products/'+ product.product?._id" src="../../../../assets//image 22.png"
-        class=" w-full h-[18.563rem] ">
+        class=" h-[18.563rem] max-w-full  rounded-lg">
 
 
       <i *ngIf="!updateCart" class="bi bi-suit-heart text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
@@ -210,7 +210,7 @@
   <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1  text-[#F66B0E]  text[1rem] font-inter  ">
     <div class=" w-full relative">
       <img [routerLink]="'/products/'+ product.product?._id"
-        src="../../../../assets/Floral Pattern Crochet Sweater Vest.png" class=" w-full h-[18.563rem] ">
+        src="../../../../assets/Floral Pattern Crochet Sweater Vest.png" class=" w-full h-[18.563rem] max-w-full  rounded-lg ">
 
 
       <i *ngIf="!updateCart" class="bi bi-suit-heart text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"

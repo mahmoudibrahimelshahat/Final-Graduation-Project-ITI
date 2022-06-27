@@ -1,4 +1,4 @@
-<div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1 mb-9 text-[#F66B0E]  text[1rem] font-inter pt-4  ">
+<div class=" flex flex-col  w-[18rem] h-[ 25rem]   mb-9 text-[#F66B0E]   font-inter mt-[4rem] ">
     <div class=" w-full relative">
         <img [routerLink]="'/products/'+ productItem?._id" [src]="productItem?.image" class=" w-full h-[18.563rem] max-w-xs rounded-lg hover:scale-110 transition duration-300 ease-in-out ">
 
@@ -11,9 +11,9 @@
 
     </div>
     <div class="w-full h-[9.875rem] flex flex-row justify-around bg-[#E3CAA5] bg-opacity-[8%]">
-        <div class="flex flex-col justify-center">
-            <p class="text-[1.5rem] font-semibold "> {{productItem?.name}} </p>
-            <p class="text-[1.125rem] font-normal text-black">{{ productItem?.price | currency : 'EGP '}} </p>
+        <div class="flex flex-col justify-center gap-3 ">
+            <p class="text-[16px] font-semibold "> {{productItem?.name}} </p>
+            <p class="text-[16px] font-normal text-black">{{ productItem?.price | currency : 'EGP '}} </p>
             <p-rating [(ngModel)]="productItem.rating" on [cancel]="false"></p-rating>
 
         </div>
