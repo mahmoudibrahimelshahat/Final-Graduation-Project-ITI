@@ -21,9 +21,9 @@ export class CartService {
   }
 
 
-  categoryFilter(id : string) {
+  categoryFilter() {
     
-    this.currentCategory = id
+    // this.currentCategory = id
     this.idTransfer.next(this.currentCategory)
 
     // this.CategoryId = id
