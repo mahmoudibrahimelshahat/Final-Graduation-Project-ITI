@@ -8,8 +8,10 @@ export class OrdersService {
 
   constructor(private httpClient:HttpClient) { }
 
-  getAllOrders()
+
+
+  getAllOrders(userId : string)
   {
-    return this.httpClient.get<any>("http://localhost:3000/api/v1/orders/get/userorders/:userid");
+    return this.httpClient.get<any>( `http://localhost:3000/api/v1/orders/get/userorders/${userId}`);
   }
 }

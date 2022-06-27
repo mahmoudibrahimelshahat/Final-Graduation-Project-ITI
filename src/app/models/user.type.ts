@@ -5,4 +5,5 @@ export interface User {
     token:string;
     user:string;
     userName:string;
+    userId:any;
 }

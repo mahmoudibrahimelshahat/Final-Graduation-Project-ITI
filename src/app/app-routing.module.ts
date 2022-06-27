@@ -13,6 +13,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
+import { ProfileOrderComponent } from './components/profile-order/profile-order.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,8 @@ const routes: Routes = [
   {path:'about',canActivate:[AuthGuard], component: AboutComponent},
   {path:'contact',canActivate:[AuthGuard], component: ContactComponent},
   {path:'wishlist',canActivate:[AuthGuard], component: WishlistComponent},
+  {path:'orders',canActivate:[AuthGuard], component: ProfileOrderComponent},
+
 
 
 
