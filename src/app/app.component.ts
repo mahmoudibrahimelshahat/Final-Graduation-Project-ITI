@@ -8,6 +8,9 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
   title = 'E-shop';
+
+
+  
   isLogin:boolean=false;
 
   constructor(public auth:AuthService){

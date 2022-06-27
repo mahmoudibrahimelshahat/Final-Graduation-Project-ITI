@@ -19,6 +19,7 @@ const routes: Routes = [
   {path:'products/:productItem_id',canActivate:[AuthGuard], component: ProductDetailsComponent},
   {path:'list',canActivate:[AuthGuard], component: ProductsListComponent},
   // {path:'detail', component: ProductDetailsComponent},
+  {path:'categories/:category_id', component:ProductsListComponent},
   {path:'cart', canActivate:[AuthGuard],component:CartProductComponent},
   {path: 'checkout',canActivate:[AuthGuard], component: CheckoutComponent},
   {path: 'success',canActivate:[AuthGuard], component: ThankYouComponent},
@@ -28,9 +29,14 @@ const routes: Routes = [
   {path:'profile',canActivate:[AuthGuard], component: ProfileComponent},
   {path:'about',canActivate:[AuthGuard], component: AboutComponent},
   {path:'contact',canActivate:[AuthGuard], component: ContactComponent},
-  {path:'whishlist',canActivate:[AuthGuard], component: WishlistComponent}
+  {path:'wishlist',canActivate:[AuthGuard], component: WishlistComponent},
 
 
+
+  
+  {path:'shop', component: ProductsListComponent},
+  {path:'detail', component: ProductDetailsComponent},
+  {path:'productslist', component:ProductsListComponent},
 
 ];
 

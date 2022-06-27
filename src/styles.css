@@ -45,3 +45,22 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-color: rgba(227, 202, 165, 0.08) !important;
   border:none !important
 }
+
+
+.ngx-pagination .current{
+  background-color : #F66B0E !important
+  }
+  
+  
+  a:link { text-decoration: none; }
+  
+  
+  a:visited { text-decoration: none; }
+  
+  
+  a:hover { text-decoration: none;  color : orange }
+  
+  
+  a:active { text-decoration: none; }
+  
+  

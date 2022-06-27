@@ -29,6 +29,15 @@ export class ProductService {
 
   }
 
+  getSingleCategoryproducts(id?: string): Observable<Product[]> {
+    let params = new HttpParams()
+    if (id) {
+    params = params.append('categories', id)
+      console.log(params)
+    }
+
+    return this.http.get<Product[]>('http://localhost:3000/api/v1/products', { params: params });
+  }
   getProductById(productId: string): Observable<Product> {
 
     console.log('getProductById service')

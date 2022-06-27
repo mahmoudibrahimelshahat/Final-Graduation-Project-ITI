@@ -2,11 +2,12 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject, takeUntil, BehaviorSubject } from 'rxjs';
 import { CartItem } from 'src/app/models/cart';
+import { Category } from 'src/app/models/category';
 import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart/cart.service';
+import { CategoriesService } from 'src/app/services/categories/categories.service';
 import { ProductService } from 'src/app/services/product/products-service.service';
 import { WishlistService } from 'src/app/services/whishlist/whishlist.service';
-
 
 
 @Component({
@@ -21,25 +22,28 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   quantity = 1;
   endsub$: Subject<any> = new Subject<void>()
   id: string 
-  updateCart : boolean
+  updateCart : boolean = false
 
 
-  constructor(private productService: ProductService, private cartService: CartService,private wishlistService : WishlistService, private actRoute: ActivatedRoute) {
+  CategoryId: string
+  productList: Product[] = [];
+  categoriesList: Category[] = [];
+  categoryProduct: Product[] = []
+  // cartCount: number = 0;
+
+
+  error: any = '';
+
+  constructor(private productService: ProductService, private cartService: CartService,private categoriesService:CategoriesService
+    ,private wishlistService : WishlistService, private actRoute: ActivatedRoute) {
     this.cartService.initCartLocalStorage();
   }
 
   ngOnInit(): void {
 
-    // this.id = this.actRoute.snapshot.params?.['productItem_id'];
-    // // this.idB.next(this.id);
-    // // this.actRoute.params.subscribe((params) => {
-    // //   if (params['productItemid']) {
-    // //     const idParams = params['productItemid'];
-    // // this.idB.subscribe(id=>{
-    // //   this.id = id
-    // // })
-    // this._getProducts(this.id);
-    // console.log(idParams)
+    this.loadProduct();
+    this.loadCategories();
+
 
 
     {
@@ -91,6 +95,12 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   
   addToWishlist(){
 
+    if(this.updateCart){
+      this.updateCart = false
+    }else
+    {this.updateCart = true}
+
+    
     const cartItem : CartItem = 
   
     {
@@ -101,5 +111,60 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
     return this.wishlistService.addProductToWishlist(cartItem , this.updateCart );
   }
   
+  
+
+
+
+  private loadProduct(selectedCategories?: string[]) {
+
+    console.log('this is selected ' + selectedCategories)
+    this.productService.getproducts(selectedCategories).subscribe((resProducts) => {
+      this.productList = resProducts;
+      console.log(this.productList +'all');
+
+    });
+  }
+
+
+  private loadCategoryProducts(CategoryId?: string) {
+
+    // console.log('this is selected ' +CategoryId)
+    this.productService.getSingleCategoryproducts(CategoryId).subscribe((resProducts) => {
+      this.productList = resProducts;
+      console.log(this.productList + 'hello');
+
+    });
+  }
+
+
+  private loadCategories() {
+    this.categoriesService.getCategories().subscribe((resCategories) => {
+      this.categoriesList = resCategories;
+      // console.log(this.categoriesList);
+
+    });
+  }
+
+
+
+  categoriesFilter() {
+    const selectedCategories = this.categoriesList
+      .filter(category => category.checked)
+      .map(category => category._id)
+
+    this.loadProduct(selectedCategories)
+  }
+
+
+  categoryFilter(id : string) {
+
+    this.CategoryId = id
+
+    this.loadCategoryProducts(this.CategoryId)
+
+
+  }
+
+
+
 }
- 

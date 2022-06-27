@@ -6,6 +6,9 @@ module.exports = {
     require('tw-elements/dist/plugin')
   ],
   theme: {
+  gap:{
+    'first':'2.5rem'
+  },
     extend: {
       colors: {
         'lightorange': '#F66B0E',

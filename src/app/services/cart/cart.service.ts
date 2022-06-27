@@ -59,12 +59,6 @@ export class CartService {
           return item;
         }
 
-        // }else{
-        //   item.quantity = cartItem.quantity
-        //   return item;
-
-        // }
-        // item.quantity = cartItem.quantity + item.quantity
         return item;
 
       });

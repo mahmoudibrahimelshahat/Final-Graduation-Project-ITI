@@ -1,34 +1,117 @@
-<div *ngIf="productCart">
+<nav class="bg-white py-0">
 
-    <p> {{cartCount}} cartCount </p>
-    <p>{{totalPrice}}  order summary </p>
-
-
-    <div *ngFor="let product of productCart">
-    <!-- <p> {{product.quantity}} this is cart product quantity </p> -->
-    <p> {{product.product.id}} this is cart product _id</p>
-    <p>{{product.quantity}}  quantity</p>
-
-    <p>{{product.quantity * product.product.price}}  subtotal</p>
+  <div class="grid grid-flow-col grid-cols-1 lg:grid-cols-1 justify-between w-[90%] m-auto items-center">
 
 
+    <ul class="lg:flex justify-center hidden">
 
-    <div class="flex justify-center">
-        <div class="mb-3 xl:w-96">
-          <label for="quantity" class="form-label inline-block mb-2 text-gray-700"
-            >Quantity</label>
+      <li class="py-4 px-4 width-4">
+
+        <a href="#"> Home </a>
+      </li>
+      <li class="py-4 px-4 width-4 categories">
+
+        <a routerLink="/list" class="inline">
+          Shop
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-caret-down text-xs inline" viewBox="0 0 16 16">
+            <path
+              d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
+          </svg>
+        </a>
+
+
+
+
+        <div *ngIf="categoriesList">
+
+          <ul class="categories-list">
+            <li *ngFor="let category of categoriesList">
+              <a href="#" [routerLink]="'/categories/'+ category?._id"
+                (click)='categoryFilter(category._id)'>{{category.name}}</a>
+            </li>
+          </ul>
+
+
+          <!-- <div *ngFor="let category of categoriesList">
+    <label class="container "> {{category.name}} </label>
+    <input type="checkbox" [(ngModel)]='category.checked' [id]='category._id' (ngModelChange)='categoriesFilter()'>
+    <span class="checkmark"></span>
+  </div>  -->
+
+        </div>
+
+
+
+
+
+      </li>
+      <li class="py-4  pr-4 width-4">
+
+        <a routerLink="/about"> About us </a>
+      </li>
+      <li class="py-4 px-4 width-4">
+
+        <a routerLink="/contact"> Contact us </a>
+      </li>
+
+    </ul>
+
+
+  </div>
+
+</nav>
+
+
+
+<div *ngIf="cartCount === 0" class="w-full h-full my-[10.344rem] ">
+  <div class=" h-auto w-auto flex items-center justify-center">
+    <p class="text-[3rem]">Cart Is Empty !</p>
+  </div>
+</div>
+
+<section *ngIf="cartCount> 0"  class="main flex flex-row items-start w-[80rem] m-auto justify-between gap-first pb-14">
+
+
+  
+  <div class="flex flex-col border-[.01rem] border-[#C4C4C4]   p-5 box-content	">
+  
+    
+    
+      <div class="flex flex-row justify-between w-auto font-medium  ">
+        <p class="border-b-2">Shopping Cart</p>
+        <p class="border-b-2">Price</p>
+      </div>
+    
+  <!-- <hr class="border-b-[.01rem] w-[51rem]"> -->
+    
+      <div *ngFor="let product of productCart" class="w-auto my-[5rem] "> 
+         
+        <div class="flex flex-row w-auto  h-[7.813rem]  justify-between">
           
-          <input
-
-            [(ngModel)]="product.quantity"
+        <div class="flex flex-row gap-x-[1rem] ">
+    
+          <div  class="w-[30%] ">
+            <img [src]="product.product.image" class="h-[auto]">
+          </div>
+    
+    
+    
+        <div class="flex flex-col   items-start  gap-y-[.5rem]">
+    
+          <div class="flex flex-row gap-x-first">
+            <p class="form-label text-gray-700 font-medium">
+              Quantity
+            </p>
+    
+            <input [(ngModel)]="product.quantity"   
             (input)="updateCartQuantity($event, product)"
-            type="number"
-            class="
+
+             type="number" class="
+              ring-0
               form-control
               block
-              w-full
-              px-3
-              py-1.5
+              w-[5rem]
               text-base
               font-normal
               text-gray-700
@@ -38,22 +121,224 @@
               transition
               ease-in-out
               m-0
-              focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-            "
-            id="quantity"
-            placeholder="Number input"
-          />
+              focus:text-gray-700 focus:bg-white  focus:ring-0 " id="quantity" placeholder="Number input" />
+         </div>
+              <div class="flex flex-row gap-[.3rem] ">
+                <button (click)="deleteCartItem(product)"
+                  class="w-[3rem] h-[2rem]  text-[#F66B0E] font-bold focus:outline-none">Remove</button>
+              </div>
         </div>
-      </div>
+        </div>
+    
+         
+        
+    
+        <div><p class="text-center font-bold">{{product.quantity * product.product.price  | currency : 'EGP'}} </p></div>
+  
+        </div>
+    
+    </div>
+    
+      </div> 
+    
+  
+  
+  
+  
+            <!-- order -->
+  
+            <div class=" flex flex-col w-[19.469rem] h-full  items-center p-5 justify-start border-2 ">
+              <p class="font-semibold border-b-2">Order Summary</p>
+
+              <p class="p-2 font-bold  py-4"> {{ totalPrice| currency : 'EGP'}}
+            </p>
+
+              <button class="w-[6rem] h-[2rem] text-white  bg-[#F66B0E] font-bold focus:outline-none" (click)="navigateToCheckout()">Checkout!</button>
+
+             </div>
+  
+
+ 
+
+</section>
 
 
-    <button (click)="deleteCartItem(product)"> remove item </button>
-   
-    <p>------------------------------------------------------------------</p>
-      <div class="checkout-button" *ngIf="!isCheckout">
-        <button (click)="navigateToCheckout()">Checkout</button>
+
+
+
+<hr *ngIf="cartCount > 0" class="border-2 border-opacity-40 border-[#C4C4C4] m-auto w-[80.375rem] py-4 ">
+
+
+
+<div *ngIf="cartCount > 0"  class="m-auto  w-[80rem] flex flex-row justify-between ">
+  <p class="font-bold">
+    Related Products
+  </p>
+  <p>
+    <a routerLink="/productslist" class="font-bold hover:no-underline hover:text-[black]">See All</a>
+  </p>
+</div>
+
+
+
+<div *ngFor="let product of productCart"  class="flex flex-row m-auto gap-first justify-center py-10">
+
+  <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1  text-[#F66B0E]  text[1rem] font-inter  ">
+    <div class=" w-full relative">
+      <img [routerLink]="'/products/'+ product.product?._id" src="../../../../assets/Bear Cardigan.png"
+        class=" w-full h-[18.563rem] ">
+
+
+      <i *ngIf="!updateCart" class="bi bi-suit-heart text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
+        (click)="addToWishlist()"></i>
+      <i *ngIf="updateCart" class="bi bi-suit-heart-fill text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
+        (click)="addToWishlist()"></i>
+
+    </div>
+    <div class="w-full h-[9.875rem] flex flex-row justify-around bg-[#E3CAA5] bg-opacity-[8%]">
+      <div class="flex flex-col justify-center">
+        <!-- <p class="text-[1.5rem] font-semibold "> {{product.product?.name}} </p> -->
+        <p class="text-[1.125rem] font-normal text-black">{{ product.product?.price | currency : 'EGP '}} </p>
+        <p-rating [(ngModel)]="product.product.rating" on [cancel]="false"></p-rating>
+
       </div>
-     
+      <div class="flex flex-col justify-center">
+        <i class="bi bi-handbag text-2xl hover:cursor-pointer" (click)="addToCart()"> </i>
+      </div>
     </div>
 
+  </div>
+
+
+
+  <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1 text-[#F66B0E]  text[1rem] font-inter  ">
+    <div class=" w-full relative">
+      <img [routerLink]="'/products/'+ product.product?._id" src="../../../../assets/image 29.png"
+        class=" w-full h-[18.563rem] bg-contain">
+
+
+      <i *ngIf="!updateCart" class="bi bi-suit-heart text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
+        (click)="addToWishlist()"></i>
+      <i *ngIf="updateCart" class="bi bi-suit-heart-fill text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
+        (click)="addToWishlist()"></i>
+
+    </div>
+    <div class="w-full h-[9.875rem] flex flex-row justify-around bg-[#E3CAA5] bg-opacity-[8%]">
+      <div class="flex flex-col justify-center">
+        <!-- <p class="text-[1.5rem] font-semibold "> {{product.product?.name}} </p> -->
+        <p class="text-[1.125rem] font-normal text-black">{{ product.product?.price | currency : 'EGP '}} </p>
+        <p-rating [(ngModel)]="product.product.rating" on [cancel]="false"></p-rating>
+
+      </div>
+      <div class="flex flex-col justify-center">
+        <i class="bi bi-handbag text-2xl hover:cursor-pointer" (click)="addToCart()"> </i>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1  text-[#F66B0E]  text[1rem] font-inter  ">
+    <div class=" w-full relative">
+      <img [routerLink]="'/products/'+ product.product?._id" src="../../../../assets//image 22.png"
+        class=" w-full h-[18.563rem] ">
+
+
+      <i *ngIf="!updateCart" class="bi bi-suit-heart text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
+        (click)="addToWishlist()"></i>
+      <i *ngIf="updateCart" class="bi bi-suit-heart-fill text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
+        (click)="addToWishlist()"></i>
+
+    </div>
+    <div class="w-full h-[9.875rem] flex flex-row justify-around bg-[#E3CAA5] bg-opacity-[8%]">
+      <div class="flex flex-col justify-center">
+        <!-- <p class="text-[1.5rem] font-semibold "> {{product.product.categories}} </p> -->
+        <p class="text-[1.125rem] font-normal text-black">{{ product.product?.price | currency : 'EGP '}} </p>
+        <p-rating [(ngModel)]="product.product.rating" on [cancel]="false"></p-rating>
+
+      </div>
+      <div class="flex flex-col justify-center">
+        <i class="bi bi-handbag text-2xl hover:cursor-pointer" (click)="addToCart()"> </i>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1  text-[#F66B0E]  text[1rem] font-inter  ">
+    <div class=" w-full relative">
+      <img [routerLink]="'/products/'+ product.product?._id" src="../../../../assets/Floral Pattern Crochet Sweater Vest.png"
+        class=" w-full h-[18.563rem] ">
+
+
+      <i *ngIf="!updateCart" class="bi bi-suit-heart text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
+        (click)="addToWishlist()"></i>
+      <i *ngIf="updateCart" class="bi bi-suit-heart-fill text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
+        (click)="addToWishlist()"></i>
+
+    </div>
+    <div class="w-full h-[9.875rem] flex flex-row justify-around bg-[#E3CAA5] bg-opacity-[8%]">
+      <div class="flex flex-col justify-center">
+        <!-- <p class="text-[1.5rem] font-semibold "> {{product.product?.category} </p> -->
+        <p class="text-[1.125rem] font-normal text-black">{{ product.product?.price | currency : 'EGP '}} </p>
+        <p-rating [(ngModel)]="product.product.rating" on [cancel]="false"></p-rating>
+
+      </div>
+      <div class="flex flex-col justify-center">
+        <i class="bi bi-handbag text-2xl hover:cursor-pointer" (click)="addToCart()"> </i>
+      </div>
+    </div>
+
+  </div>
+
+
 </div>
+
+
+<div *ngIf="cartCount > 0" class="flex justify-evenly mb-5">
+  <nav aria-label="Page navigation example">
+    <ul class="flex list-style-none">
+      <li class="page-item"><a
+          class="page-link relative block py-1 px-2  border-0 bg-transparent outline-none transition-all duration-300 rounded-lg text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
+          href="#"><img src="../../../../assets/arrow left.svg"></a></li>
+
+
+      <li class="page-item"><a
+          class="page-link relative block py-1 px-2 border-1 bg-transparent outline-none transition-all duration-300 rounded-lg text-gray-800 m-1 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
+          href="#">1</a></li>
+
+
+      <li class="page-item active">
+        <a class="page-link relative block py-1 px-2 border-1  outline-none transition-all duration-300 rounded-lg text-white m-1  hover:text-white shadow-md active:shadow-md bg-[#F66B0E] "
+          href="#">2 <span class="visually-hidden">(current)</span></a>
+      </li>
+
+
+      <li class="page-item"><a
+          class="page-link relative block py-1 px-2 border-1 bg-transparent outline-none transition-all duration-300 rounded-lg text-gray-800 m-1 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
+          href="#">3</a></li>
+
+      <li class="page-item"><a
+          class="page-link relative block py-1 px-2 border-1 bg-transparent outline-none transition-all duration-300 rounded-lg text-gray-800 m-1 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
+          href="#">4</a></li>
+
+
+      <li class="page-item"><a
+          class="page-link relative block py-1 px-2  border-0 bg-transparent outline-none transition-all duration-300 rounded text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
+          href="#"><img src="../../../../assets/Vector.svg"></a></li>
+    </ul>
+  </nav>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+ 

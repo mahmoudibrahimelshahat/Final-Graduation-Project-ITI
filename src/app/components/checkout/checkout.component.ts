@@ -9,6 +9,7 @@ import { ORDER_STATUS } from 'src/app/models/order.constants';
 import { MenuItem } from 'primeng/api';
 import { Subject, take, takeUntil } from 'rxjs';
 import { ProductService } from 'src/app/services/product/products-service.service';
+import { User } from 'src/app/models/user.type';
 
 @Component({
   selector: 'app-checkout',
@@ -40,9 +41,13 @@ endSub$: Subject<any> = new Subject<void>()
   checkoutFormGroup: FormGroup;
   isSubmitted = false;
   orderItems: CartItem[] = [];
-  userId = "62b36d93ab1ef738687c672e";
+  userId:User;
+  userName:string | null;
+ dataUser:User;
 
   ngOnInit(): void {
+    this.dataUser = JSON.parse(localStorage.getItem('dataUser')||'{}');
+    this.userName=this.dataUser?.userName;
     this.items = [
       {label: 'Shopping Cart', routerLink: '/cart'},
       {label: 'Checkout', routerLink: '/checkout'},

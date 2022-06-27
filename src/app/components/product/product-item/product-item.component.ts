@@ -18,12 +18,20 @@ export class ProductItemComponent implements OnInit {
   updateCart: boolean = false
 
 
+
   constructor(private cartService : CartService , private wishlistService : WishlistService) { }
 
   ngOnInit(): void {
     this.cartService.initCartLocalStorage();
     this.wishlistService.initWishlistLocalStorage();
+    // this.getUpdateStatus()
+
+
   }
+
+
+
+
 
    addProductToCart()
    {
@@ -39,15 +47,32 @@ export class ProductItemComponent implements OnInit {
   
   addToWishlist(){
 
+    if(this.updateCart){
+      this.updateCart = false
+    }else
+    {this.updateCart = true}
+
+
+    // this.addUpdateStatus()
     const cartItem : CartItem = 
   
     {
       productId :  this.productItem._id,
       quantity : 1
     }
-  
     return this.wishlistService.addProductToWishlist(cartItem , this.updateCart );
   }
   
+  
+addUpdateStatus(){
 
+  const updated : string = JSON.stringify(this.updateCart)
+  localStorage.setItem('update' , updated)
+
+}
+
+getUpdateStatus(){
+  const updated : string = localStorage.getItem('update')
+  this.updateCart  = JSON.parse(updated);
+}
 }
