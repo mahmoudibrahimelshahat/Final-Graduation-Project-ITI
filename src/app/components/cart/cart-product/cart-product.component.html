@@ -126,64 +126,10 @@
 
 <div *ngFor="let product of productCart | paginate: { itemsPerPage: 1, currentPage: p }" class="flex flex-row my-[10.344rem] gap-first justify-center mb-4">
 
-  <div class=" flex flex-col  border-1  text-[#F66B0E]  text[1rem] font-inter  ">
-    <div class=" w-full relative">
-      <img [routerLink]="'/products/'+ product.product?._id" src="../../../../assets/Bear Cardigan.png"
-        class=" h-[18.563rem] max-w-full  rounded-lg">
-
-
-      <i *ngIf="!updateCart" class="bi bi-suit-heart text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
-        (click)="addToWishlist()"></i>
-      <i *ngIf="updateCart" class="bi bi-suit-heart-fill text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
-        (click)="addToWishlist()"></i>
-
-    </div>
-    <div class="w-full h-[9.875rem] flex flex-row justify-around bg-[#E3CAA5] bg-opacity-[8%]">
-      <div class="flex flex-col justify-center">
-
-        <p class="text-[1.125rem] font-normal text-black">{{ product.product?.price | currency : 'EGP '}} </p>
-        <p-rating [(ngModel)]="product.product.rating" on [cancel]="false"></p-rating>
-
-      </div>
-      <div class="flex flex-col justify-center">
-        <i class="bi bi-handbag text-2xl hover:cursor-pointer" (click)="addToCart()"> </i>
-      </div>
-    </div>
-
-  </div>
-
-
-
-  <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1 text-[#F66B0E]  text[1rem] font-inter  ">
-    <div class=" w-full relative">
-      <img [routerLink]="'/products/'+ product.product?._id" src="../../../../assets/image 29.png"
-        class="h-[18.563rem] max-w-full  rounded-lg">
-
-
-      <i *ngIf="!updateCart" class="bi bi-suit-heart text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
-        (click)="addToWishlist()"></i>
-      <i *ngIf="updateCart" class="bi bi-suit-heart-fill text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
-        (click)="addToWishlist()"></i>
-
-    </div>
-    <div class="w-full h-[9.875rem] flex flex-row justify-around bg-[#E3CAA5] bg-opacity-[8%]">
-      <div class="flex flex-col justify-center">
-        <p class="text-[1.125rem] font-normal text-black">{{ product.product?.price | currency : 'EGP '}} </p>
-        <p-rating [(ngModel)]="product.product.rating" on [cancel]="false"></p-rating>
-
-      </div>
-      <div class="flex flex-col justify-center">
-        <i class="bi bi-handbag text-2xl hover:cursor-pointer" (click)="addToCart()"> </i>
-      </div>
-    </div>
-
-  </div>
-
-
   <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1  text-[#F66B0E]  text[1rem] font-inter  ">
     <div class=" w-full relative">
-      <img [routerLink]="'/products/'+ product.product?._id" src="../../../../assets//image 22.png"
-        class=" h-[18.563rem] max-w-full  rounded-lg">
+      <img [routerLink]="'/products/'+ product.product?._id" [src]="product.product?.image"
+        class=" w-full h-[18.563rem] rounded-t-lg ">
 
 
       <i *ngIf="!updateCart" class="bi bi-suit-heart text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
@@ -192,16 +138,17 @@
         (click)="addToWishlist()"></i>
 
     </div>
-    <div class="w-full h-[9.875rem] flex flex-row justify-around bg-[#E3CAA5] bg-opacity-[8%]">
-      <div class="flex flex-col justify-center">
-        <p class="text-[1.125rem] font-normal text-black">{{ product.product?.price | currency : 'EGP '}} </p>
-        <p-rating [(ngModel)]="product.product.rating" on [cancel]="false"></p-rating>
+    <div class="w-full h-[9.875rem] flex flex-row justify-around bg-[#f5f5f5] bg-opacity-[8%]  rounded-t-lg  ">
+      <div class="flex flex-col justify-center gap-3 ">
+          <p class="text-[16px] font-semibold "> {{product.product?.name}} </p>
+          <p class="text-[16px] font-normal text-black">{{product.product?.price | currency : 'EGP '}} </p>
+          <p-rating [(ngModel)]="product.product.rating" on [cancel]="false"></p-rating>
 
       </div>
       <div class="flex flex-col justify-center">
-        <i class="bi bi-handbag text-2xl hover:cursor-pointer" (click)="addToCart()"> </i>
+          <i class="bi bi-handbag text-2xl hover:cursor-pointer" (click)="addToCart()"> </i>
       </div>
-    </div>
+  </div>
 
   </div>
 
@@ -209,8 +156,8 @@
 
   <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1  text-[#F66B0E]  text[1rem] font-inter  ">
     <div class=" w-full relative">
-      <img [routerLink]="'/products/'+ product.product?._id"
-        src="../../../../assets/Floral Pattern Crochet Sweater Vest.png" class=" w-full h-[18.563rem] max-w-full  rounded-lg ">
+      <img [routerLink]="'/products/'+ product.product?._id" [src]="product.product?.image"
+        class=" w-full h-[18.563rem] rounded-t-lg ">
 
 
       <i *ngIf="!updateCart" class="bi bi-suit-heart text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
@@ -219,16 +166,75 @@
         (click)="addToWishlist()"></i>
 
     </div>
-    <div class="w-full h-[9.875rem] flex flex-row justify-around bg-[#E3CAA5] bg-opacity-[8%]">
-      <div class="flex flex-col justify-center">
-        <p class="text-[1.125rem] font-normal text-black">{{ product.product?.price | currency : 'EGP '}} </p>
-        <p-rating [(ngModel)]="product.product.rating" on [cancel]="false"></p-rating>
+    <div class="w-full h-[9.875rem] flex flex-row justify-around bg-[#f5f5f5] bg-opacity-[8%]  rounded-t-lg  ">
+      <div class="flex flex-col justify-center gap-3 ">
+          <p class="text-[16px] font-semibold "> {{product.product?.name}} </p>
+          <p class="text-[16px] font-normal text-black">{{product.product?.price | currency : 'EGP '}} </p>
+          <p-rating [(ngModel)]="product.product.rating" on [cancel]="false"></p-rating>
 
       </div>
       <div class="flex flex-col justify-center">
-        <i class="bi bi-handbag text-2xl hover:cursor-pointer" (click)="addToCart()"> </i>
+          <i class="bi bi-handbag text-2xl hover:cursor-pointer" (click)="addToCart()"> </i>
       </div>
+  </div>
+
+  </div>
+
+
+
+  <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1  text-[#F66B0E]  text[1rem] font-inter  ">
+    <div class=" w-full relative">
+      <img [routerLink]="'/products/'+ product.product?._id" [src]="product.product?.image"
+        class=" w-full h-[18.563rem] rounded-t-lg ">
+
+
+      <i *ngIf="!updateCart" class="bi bi-suit-heart text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
+        (click)="addToWishlist()"></i>
+      <i *ngIf="updateCart" class="bi bi-suit-heart-fill text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
+        (click)="addToWishlist()"></i>
+
     </div>
+    <div class="w-full h-[9.875rem] flex flex-row justify-around bg-[#f5f5f5] bg-opacity-[8%]  rounded-t-lg  ">
+      <div class="flex flex-col justify-center gap-3 ">
+          <p class="text-[16px] font-semibold "> {{product.product?.name}} </p>
+          <p class="text-[16px] font-normal text-black">{{product.product?.price | currency : 'EGP '}} </p>
+          <p-rating [(ngModel)]="product.product.rating" on [cancel]="false"></p-rating>
+
+      </div>
+      <div class="flex flex-col justify-center">
+          <i class="bi bi-handbag text-2xl hover:cursor-pointer" (click)="addToCart()"> </i>
+      </div>
+  </div>
+
+  </div>
+
+
+
+
+  
+  <div class=" flex flex-col  w-[18rem] h-[ 28.438rem]  border-1  text-[#F66B0E]  text[1rem] font-inter  ">
+    <div class=" w-full relative">
+      <img [routerLink]="'/products/'+ product.product?._id" [src]="product.product?.image"
+        class=" w-full h-[18.563rem] rounded-t-lg ">
+
+
+      <i *ngIf="!updateCart" class="bi bi-suit-heart text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
+        (click)="addToWishlist()"></i>
+      <i *ngIf="updateCart" class="bi bi-suit-heart-fill text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
+        (click)="addToWishlist()"></i>
+
+    </div>
+    <div class="w-full h-[9.875rem] flex flex-row justify-around bg-[#f5f5f5] bg-opacity-[8%]  rounded-t-lg  ">
+      <div class="flex flex-col justify-center gap-3 ">
+          <p class="text-[16px] font-semibold "> {{product.product?.name}} </p>
+          <p class="text-[16px] font-normal text-black">{{product.product?.price | currency : 'EGP '}} </p>
+          <p-rating [(ngModel)]="product.product.rating" on [cancel]="false"></p-rating>
+
+      </div>
+      <div class="flex flex-col justify-center">
+          <i class="bi bi-handbag text-2xl hover:cursor-pointer" (click)="addToCart()"> </i>
+      </div>
+  </div>
 
   </div>
 

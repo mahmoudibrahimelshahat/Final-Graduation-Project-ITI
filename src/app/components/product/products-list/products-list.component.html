@@ -28,14 +28,6 @@
 
 
 
-
-
-
-
-
-
-
-
   <div class="grid gap-x-first grid-cols-4  " *ngIf="productList">
     <div *ngFor="let product of productList | paginate: { itemsPerPage: 12, currentPage: p }">
       <div  *ngIf="enteredSearchValue === '' ||  product?.name.toLowerCase().includes(enteredSearchValue) ">
@@ -48,43 +40,3 @@
     <pagination-controls (pageChange)="p = $event">  </pagination-controls>
   </div>
 </div>
-
-
-<!-- <div class="flex justify-evenly mb-5">
-  <nav aria-label="Page navigation example">
-    <ul class="flex list-style-none">
-      <li class="page-item"><a
-          class="page-link relative block py-1 px-2  border-0 bg-transparent outline-none transition-all duration-300 rounded-lg text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-           routerLink="/productslist"><img src="../../../../assets/arrow left.svg"></a></li>
-
-
-      <li class="page-item"><a
-          class="page-link relative block py-1 px-2 border-1 bg-transparent outline-none transition-all duration-300 rounded-lg text-gray-800 m-1 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-          routerLink="/productslist">1</a></li>
-
-
-      <li class="page-item active">
-        <a class="page-link relative block py-1 px-2 border-1  outline-none transition-all duration-300 rounded-lg text-white m-1  hover:text-white shadow-md active:shadow-md bg-[#F66B0E] "
-        routerLink="/productslist">2 <span class="visually-hidden">(current)</span></a>
-      </li>
-
-
-      <li class="page-item"><a
-          class="page-link relative block py-1 px-2 border-1 bg-transparent outline-none transition-all duration-300 rounded-lg text-gray-800 m-1 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-          routerLink="/productslist">3</a></li>
-
-      <li class="page-item"><a
-          class="page-link relative block py-1 px-2 border-1 bg-transparent outline-none transition-all duration-300 rounded-lg text-gray-800 m-1 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-          routerLink="/productslist">4</a></li>
-
-
-      <li class="page-item"><a
-          class="page-link relative block py-1 px-2  border-0 bg-transparent outline-none transition-all duration-300 rounded text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-          href="#"><img src="../../../../assets/Vector.svg"></a></li>
-    </ul>
-  </nav>
-
-</div>
-
-
-<paginator [rows]="10" [totalRecords]="totalRecords" [rowsPerPageOptions]="[10,20,30]"></paginator> -->
