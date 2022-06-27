@@ -71,7 +71,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
       this.productDetails = product;
       // this.idB.next(this.productDetails._id)
       console.log(product + '_getproduct()')  
-      console.log(this.productDetails._id) 
+      console.log(this.productDetails.category) 
 
 
     })
