@@ -31,15 +31,11 @@ const routes: Routes = [
   {path:'about', component: AboutComponent},
   {path:'contact', component: ContactComponent},
   {path:'wishlist',canActivate:[AuthGuard], component: WishlistComponent},
-  {path:'orders',canActivate:[AuthGuard], component: ProfileOrderComponent},
-
-
-
-
-  
+  {path:'orders',canActivate:[AuthGuard], component: ProfileOrderComponent},  
   {path:'shop', component: ProductsListComponent},
   {path:'detail', component: ProductDetailsComponent},
   {path:'productslist', component:ProductsListComponent},
+  {path:'home', component: HomeComponent}
 
 ];
 
