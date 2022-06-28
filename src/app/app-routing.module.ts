@@ -17,19 +17,19 @@ import { ProfileOrderComponent } from './components/profile-order/profile-order.
 
 
 const routes: Routes = [
-  {path:'products/:productItem_id',canActivate:[AuthGuard], component: ProductDetailsComponent},
-  {path:'list',canActivate:[AuthGuard], component: ProductsListComponent},
+  {path:'products/:productItem_id', component: ProductDetailsComponent},
+  {path:'list', component: ProductsListComponent},
   // {path:'detail', component: ProductDetailsComponent},
   {path:'categories/:category_id', component:ProductsListComponent},
   {path:'cart', canActivate:[AuthGuard],component:CartProductComponent},
   {path: 'checkout',canActivate:[AuthGuard], component: CheckoutComponent},
   {path: 'success',canActivate:[AuthGuard], component: ThankYouComponent},
-  {path:'' , canActivate:[AuthGuard],component: HomeComponent},
+  {path:'' ,component: HomeComponent},
   {path:'login' , component: LoginComponent},
   {path:'register' , component: RegisterationComponent},
   {path:'profile',canActivate:[AuthGuard], component: ProfileComponent},
-  {path:'about',canActivate:[AuthGuard], component: AboutComponent},
-  {path:'contact',canActivate:[AuthGuard], component: ContactComponent},
+  {path:'about', component: AboutComponent},
+  {path:'contact', component: ContactComponent},
   {path:'wishlist',canActivate:[AuthGuard], component: WishlistComponent},
   {path:'orders',canActivate:[AuthGuard], component: ProfileOrderComponent},
 
