@@ -1,19 +1,19 @@
 
 
 
-<div class='w-[100%] flex flex-col items-center'>
+<div class='w-[100%] flex flex-col items-center  '>
 
 
-  <div class="w-[100%] h-[19.875rem] bg-[#EFEFEF]  bg-opacity-[30%] flex flex-col justify-evenly   items-center">
+  <div class="w-[100%] h-[19.875rem] bg-[#EFEFEF]  bg-opacity-[30%] flex flex-col justify-evenly   items-center md:w-[100%]">
 
-    <p class="font-semibold text-[1.5rem]">You will find all you want </p>
+    <p class="w-auto font-semibold text-[1.5rem]">You will find all you want </p>
 
-    <div class=" relative flex flex-row items-center justify-center  w-[65.375rem] h-[3.5rem] bg-white text-start ">
+    <div class=" relative flex flex-row items-center justify-center  w-[65.375rem] h-[3.5rem] bg-white text-start lg:w-[65.375rem] md:w-[40%] sm:w-[40%]">
 
       <input type="text"
        [(ngModel)]="enteredSearchValue"
        (input)="onSearch()"
-        class="absolute left-[3rem] w-[95%]   block  text-base font-normal text-gray-400 bg-white  transition ease-in-out m-0 focus:text-gray-400 focus:outline-none  "
+        class="absolute left-[3rem] w-auto   block  text-base font-normal text-gray-400 bg-white  transition ease-in-out m-0 focus:text-gray-400 focus:outline-none lg:w-auto md:w-[40%] sm:w-[20%]"
         placeholder="Search..." aria-label="Search" aria-describedby="button-addon3">
 
       <button class='absolute right-[3rem]  border-0 '>
@@ -28,7 +28,7 @@
 
 
 
-  <div class="grid gap-x-first grid-cols-4  " *ngIf="productList">
+  <div class="grid gap-x-first grid-cols-4 lg:grid-cols-4 md:grid-cols-3  sm:grid-cols-1" *ngIf="productList">
     <div *ngFor="let product of productList | paginate: { itemsPerPage: 12, currentPage: p }">
       <div  *ngIf="enteredSearchValue === '' ||  product?.name.toLowerCase().includes(enteredSearchValue) ">
 
