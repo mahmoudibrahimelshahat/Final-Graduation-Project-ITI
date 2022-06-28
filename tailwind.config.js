@@ -10,6 +10,12 @@ module.exports = {
     'first':'2.5rem'
   },
     extend: {
+
+      screens:{
+          'sm':'300px',
+          
+      },
+
       colors: {
         'lightorange': '#F66B0E',
         'lightgrey':'#727272',
