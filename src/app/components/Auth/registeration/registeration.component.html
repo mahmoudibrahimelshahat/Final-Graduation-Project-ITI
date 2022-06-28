@@ -30,7 +30,7 @@
     
     
               <div *ngIf="registerForm.get('name')?.errors !==null && registerForm.get('name')?.touched"
-                class=" rounded-lg mb-4 text-base text-red-700 mb-3" role="alert">
+                class=" rounded-lg text-base text-red-700 mb-3" role="alert">
                 <p *ngIf="registerForm.get('name')?.errors?.['required']">Username is required!</p>
                 <!-- <p *ngIf="registerForm.get('username')?.errors?.['minlength']"> minLength is 3</p>
                 <p *ngIf="registerForm.get('username')?.errors?.['maxlength']">maxLength is 10</p> -->
@@ -80,7 +80,7 @@
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput1226"
                   formControlName="phone" name="phone" placeholder="phone">
                 <div *ngIf="registerForm.get('phone')?.errors !==null && registerForm.get('password')?.touched" class="
-             rounded-lg mb-4 text-base text-red-700 mb-3" role="alert">
+             rounded-lg text-base text-red-700 mb-3" role="alert">
                   <P *ngIf="registerForm.get('phone')?.errors?.['required']">Password is required!</P>
                   <!-- <P *ngIf="registerForm.get('password')?.errors?.['minlength']">password Length must be more than 11</P> -->
                   <!-- <P *ngIf="registerForm.get('password')?.errors?.['maxlength']">password Length must be more than 11</P> -->
@@ -104,7 +104,7 @@
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput126"
                   formControlName="password" name="password" placeholder="Password">
                 <div *ngIf="registerForm.get('password')?.errors !==null && registerForm.get('password')?.touched" class="
-             rounded-lg mb-4 text-base text-red-700 mb-3" role="alert">
+             rounded-lg  text-base text-red-700 mb-3" role="alert">
                   <P *ngIf="registerForm.get('password')?.errors?.['required']">Password is required!</P>
                   <!-- <P *ngIf="registerForm.get('password')?.errors?.['minlength']">password Length must be more than 11</P> -->
                   <!-- <P *ngIf="registerForm.get('password')?.errors?.['maxlength']">password Length must be more than 11</P> -->
@@ -131,7 +131,7 @@
             placeholder="Confirm Password">
     
              <div *ngIf="registerForm.get('confirmPassword')?.errors !==null && registerForm.get('confirmPassword')?.touched" class="
-             rounded-lg mb-4 text-base text-red-700 mb-3" role="alert">
+             rounded-lg  text-base text-red-700 mb-3" role="alert">
              <P *ngIf="registerForm.get('confirmPassword')?.errors?.['required']">Confirm Password is required!</P>
              <p *ngIf="registerForm?.errors?.['UnmathedPassword']">
               Confirm Password not matched
@@ -147,7 +147,8 @@
           px-1
           py-2.5
           ml-32
-          text-white
+=          text-white
+          bg-[#F66B0E] 
           font-medium
           flex
           justify-center
@@ -156,13 +157,15 @@
           uppercase
           rounded
           shadow-md
-          bg-[#F66B0E]
-          hover:bg-lightorange hover:shadow-lg
-          focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
-          active:bg-blue-800 active:shadow-lg
+          hover:bg-[#F66B0E]  hover:shadow-lg
+          focus:bg-[#F66B0E] focus:shadow-lg focus:outline-none focus:ring-0
+          active:bg-[#F66B0E]  active:shadow-lg
+          hover:text-white
           transition
           duration-150
           ease-in-out"> Sign up</button>
+
+
     
               <p class="text-gray-800 mt-6 text-center">Have an account? <a routerLink="/login"
                   class="text-lightorange hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out cursor-pointer">Login</a>
@@ -174,3 +177,5 @@
       
       </div>
     </div>
+
+    

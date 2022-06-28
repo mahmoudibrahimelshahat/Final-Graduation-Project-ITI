@@ -22,7 +22,7 @@
             focus:text-gray-700 focus:bg-white focus:border-lightorange focus:outline-none" id="exampleInputEmail2"
             aria-describedby="emailHelp" placeholder="Enter email">
   
-            <div  *ngIf="loginForm.get('email')?.errors !== null && loginForm.get('email')?.touched"  class="rounded-lg mb-4 text-base text-red-700 mb-3">
+            <div  *ngIf="loginForm.get('email')?.errors !== null && loginForm.get('email')?.touched"  class="rounded-lg  text-base text-red-700 mb-3">
               <p *ngIf="loginForm.get('email')?.errors?.['required']">Email Is Required</p>
               <p *ngIf="loginForm.get('email')?.errors?.['email']">Email Is Invalid</p>
   
@@ -59,17 +59,18 @@
           px-6
           py-2.5
           ml-10
-          bg-[#F66B0E]
           text-white
+          bg-[#F66B0E] 
           font-medium
           text-xs
           leading-tight
           uppercase
           rounded
           shadow-md
-          hover:bg-lightorange hover:shadow-lg
-          focus:bg-lightorange focus:shadow-lg focus:outline-none focus:ring-0
-          active:bg-lightorange active:shadow-lg
+          hover:bg-[#F66B0E]  hover:shadow-lg
+          focus:bg-[#F66B0E] focus:shadow-lg focus:outline-none focus:ring-0
+          active:bg-[#F66B0E]  active:shadow-lg
+          hover:text-white
           transition
           duration-150
           ease-in-out"
