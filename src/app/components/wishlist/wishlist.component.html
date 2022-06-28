@@ -13,7 +13,7 @@
       
       </div>
 
-    <div *ngIf="Count > 0" class="grid gap-x-first grid-cols-3 m-10 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+    <div *ngIf="Count > 0" class="grid gap-x-first grid-cols-3 m-10 lg:grid-cols-3 md:grid-cols-1 sm:grid-cols-1">
 
         <div  class="flex" *ngFor="let product of  wishlistProducts  | paginate: { itemsPerPage: 3, currentPage: p}">
 
