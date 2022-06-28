@@ -1,41 +1,145 @@
-<nav class = "bg-white py-0">
+<!-- <nav class="bg-white lg:py-6 ">
+  <img src="../../assets/LOGO.svg" class="mx-auto"/>
+</nav> -->
 
+<!-- 
+
+<nav class = "bg-white lg:py-0 py-6">
     <div class = "grid grid-flow-col grid-cols-2 lg:grid-cols-3 justify-between w-[90%] m-auto items-center">
         <div class="columns-2 "></div>
         <div class = "py-3 lg:flex justify-center columns-8">
-
-            <img src = "../../assets/LOGO.svg" width = "151" height = "46"/>
-
+            <img src = "../../assets/LOGO.svg" width = "150"/>
         </div>
-
         <div class = "lg:flex flex-row justify-end columns-2">
-            
             <div class="flex justify-between  w-4/12 ">
-
-
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-handbag" viewBox="0 0 16 16" routerLink="/cart" class="hover: cursor-pointer outline-0">
                 <path d="M8 1a2 2 0 0 1 2 2v2H6V3a2 2 0 0 1 2-2zm3 4V3a3 3 0 1 0-6 0v2H3.36a1.5 1.5 0 0 0-1.483 1.277L.85 13.13A2.5 2.5 0 0 0 3.322 16h9.355a2.5 2.5 0 0 0 2.473-2.87l-1.028-6.853A1.5 1.5 0 0 0 12.64 5H11zm-1 1v1.5a.5.5 0 0 0 1 0V6h1.639a.5.5 0 0 1 .494.426l1.028 6.851A1.5 1.5 0 0 1 12.678 15H3.322a1.5 1.5 0 0 1-1.483-1.723l1.028-6.851A.5.5 0 0 1 3.36 6H5v1.5a.5.5 0 1 0 1 0V6h4z"/>
             </svg>
-
-            <div class="absolute right-[12.2%] top-[.68rem]">            
+            <div class="absolute right-[12.2%] top-[.68rem]">
                 <p-badge  [value]=$any(cartCount) styleClass="mr-2" severity="danger"></p-badge>
             </div>
-
-
-
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20 " fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16" routerLink="/wishlist" class="hover: cursor-pointer outline-0">
                 <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
             </svg>
-
             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16" routerLink="/profile" class="hover: cursor-pointer outline-0">
                 <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
             </svg>
             </div>
-
         </div>
+    </div>
+</nav> -->
 
+<nav class="bg-white py-0 ">
+  <div class=" grid grid-flow-col lg:grid-cols-3 grid-cols-2  justify-between w-[90%] m-auto items-center font-medium ">
+    <uL class="lg:flex  justify-around hidden  ">
+      <li class="bg-[#b7cfd9] py-2 px-4 font-medium hover:bg-[#ebbaa9]  hover:text-white duration-300 delay-150">
+        <i class="fa-solid fa-bars pr-2"></i> <a routerLink="">CATALOG</a>
+      </li>
+      <li class="py-2 text-[#ebbaa9] "> <a routerLink="">Home</a></li>
+      <li class="py-2 hover:text-[#ebbaa9] duration-300 delay-150 "><a routerLink="">About Us</a></li>
+    </uL>
+    <h4 class="lg:text-center text-left  lg:text-4xl text-2xl font-medium py-5 font-mono"><a routerLink="">Aroma</a>
+    </h4>
+    <ul class="lg:flex basis-full ">
+      <ul class=" lg:flex basis-3/5 justify-around hidden">
+        <li class="py-2 relative list ">
+          <a class="hover:text-[#ebbaa9] duration-300 delay-150 pr-1" routerLink="">Shop</a>
+          <i class="fa-solid fa-angle-down text-xs"></i>
+          <ul
+            class="w-[200px] bg-white  absolute top-[150%] z-50  font-normal border-t-[2px] border-t-[#ebbaa9] sublist ">
+            <li class="border-b-[0.5px] px-2 py-2 "> <a class="block hover:translate-x-1 delay-200 duration-[0.5s]"
+                routerLink="">Product
+                List</a>
+            </li>
+            <li class="border-b-[0.5px] px-2 py-2 "> <a class="block hover:translate-x-1 delay-200 duration-[0.5s]"
+                routerLink="">Product
+                Slider</a>
+            </li>
+            <li class="border-b-[0.5px] px-2 py-2 "> <a class="block hover:translate-x-1 delay-200 duration-[0.5s]"
+                routerLink="">
+                Shop Page</a>
+            </li>
+
+          </ul>
+        </li>
+        <li class="py-2 relative list ">
+          <a class="hover:text-[#ebbaa9] duration-300 delay-150 pr-1" routerLink="">Blog</a>
+          <i class="fa-solid fa-angle-down text-xs"></i>
+          <ul
+            class="w-[200px] bg-white  absolute top-[150%] z-50  font-normal border-t-[2px] border-t-[#ebbaa9] sublist ">
+            <li class="border-b-[0.5px] px-2 py-2 ">
+              <a class="block hover:translate-x-1 delay-200 duration-[0.5s]" routerLink="">Blog
+                Listing
+              </a>
+
+            </li>
+            <li class="border-b-[0.5px] px-2 py-2 "> <a class="block hover:translate-x-1 delay-200 duration-[0.5s]"
+                routerLink="">Single
+                Listing</a></li>
+
+          </ul>
+        </li>
+        <li class="py-2 hover:text-[#ebbaa9] duration-300 delay-150 "><a routerLink="">Contact</a></li>
+      </ul>
+
+      <ul class="flex lg:basis-2/5  lg:justify-around justify-end lg:gap-0 gap-5  ">
+        <li class="py-2 hover:text-[#ebbaa9] duration-300 delay-150 relative cart--list">
+          <a routerLink="">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </a>
+
+          <span
+            class="flex w-[18px] h-[18px] justify-center  items-center rounded-full bg-[#ebbaa9] text-white text-sm absolute left-full top-0">0</span>
+          <ul
+            class="w-[200px] bg-white bg-opacity-70  absolute top-[145%] -right-[200%] z-50  font-normal border-t-[2px] border-t-[#ebbaa9] cart--sublist ">
+            <li class="border-b-[0.5px] px-2 py-4 "> <a class="block text-lg font-semibold" routerLink="">My
+                Cart</a>
+              <p class="text-sm text-slate-500 py-2">NO Items IN The Cart</p>
+            </li>
+
+          </ul>
+        </li>
+        <li class="py-2 hover:text-[#ebbaa9] duration-300 delay-150 "><a routerLink=""><i
+              class="fa-solid fa-user"></i></a></li>
+        <li class="py-2 hover:text-[#ebbaa9] duration-300 delay-150 lg:hidden "><a routerLink="">
+            <i class="fa-solid fa-bars pr-2" (click)="toggleNavbarCollapsing()"></i></a></li>
+      </ul>
+    </ul>
+  </div>
+  <!--toggleNavbarCollapsing-->
+  <div class="absolute z-50 top-0 inset-x-0 p-2 transition transform origin-top-right lg:hidden "
+    [class.hidden]="navbarCollapsed">
+    <div class="rounded-md shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
+      <div class="px-5 pt-4 flex items-center justify-end">
+        <div class="-mr-2">
+          <button type="button"
+            class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+            (click)="toggleNavbarCollapsing()">
+            <span class="sr-only">Close main menu</span>
+            <svg class="h-6 w-6  " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+              stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <a href="#"
+          class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Home</a>
+
+        <a href="#"
+          class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">About
+          Us</a>
+
+        <a href="#"
+          class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Shop</a>
+
+        <a href="#"
+          class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Blog</a>
+        <a href="#"
+          class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Contact</a>
+      </div>
 
     </div>
-
-
+  </div>
 </nav>

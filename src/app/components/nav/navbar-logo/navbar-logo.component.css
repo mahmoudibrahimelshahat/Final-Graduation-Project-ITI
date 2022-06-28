@@ -1,0 +1,39 @@
+.sublist {
+    visibility: hidden;
+    opacity: 0;
+    transform: translatex(-10px);
+    transition: all 0.5s 0.1s;
+    color: #222222;
+}
+
+.list:hover .sublist {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(0px)
+
+}
+
+.list:hover {
+    color: #ebbaa9;
+
+}
+
+.cart--sublist {
+    visibility: hidden;
+    opacity: 0;
+    transform: translatey(50px);
+    transition: all 0.2s 0.1s;
+    color: #222222;
+}
+
+.cart--list:hover .cart--sublist {
+    visibility: visible;
+    opacity: 1;
+    transform: translatey(0px)
+
+}
+
+.cart--list:hover {
+    color: #ebbaa9;
+
+}
