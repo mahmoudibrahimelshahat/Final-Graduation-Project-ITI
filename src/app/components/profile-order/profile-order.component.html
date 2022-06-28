@@ -3,7 +3,7 @@
     <app-side-nav></app-side-nav>
   
     <div class="container">
-      <div class="translate-x-11 translate-y-5">
+      <div class="pl-8 bg-stone-100 py-[50px]  h-full translate-y-5">
       
         <h1 class="font-extrabold leading-tight text-xl mt-0 text-black translate-y-1 txtt">Orders</h1>
         <p class="text-lightgrey mt-1 text-base edit-para">View your order history </p>
@@ -21,7 +21,7 @@
 
                 <p>
                 <span class=" text-sm mb-4 para text-lightgrey inline">Total Price:</span>
-                <span class="text-sm text-lightgrey"> {{order.totalPrice}}</span>
+                <span class="text-sm text-lightgrey"> {{ order.totalPrice | currency : 'EGP' }}</span>
                 </p>
 
               
