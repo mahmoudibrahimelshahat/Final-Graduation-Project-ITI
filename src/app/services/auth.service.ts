@@ -61,7 +61,7 @@ saveCurrentUser()
   logout(){
     this.currentUser.next(null);
     localStorage.removeItem('userToken');
-    localStorage.removeItem('userData');
+    // localStorage.removeItem('userData');
     localStorage.removeItem('dataUser');
     this.router.navigate(['/login'])
 

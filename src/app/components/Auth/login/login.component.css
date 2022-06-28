@@ -1,12 +1,13 @@
-body,
-.container {
-    background-image: url('../../../../assets/pexels.png');
-    position: absolute;
-    left: 0%;
+.containerr {
+    background-image: url('../../../../assets/pack.svg');
+    height:100vh;
+    margin: 0;
+    /* position: absolute; */
+    /* left: 0%;
     right: 0%;
     top: 0%;
-    bottom: 0%;
-    background-size: 1800px 1000px;
+    bottom: 0%; */
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
