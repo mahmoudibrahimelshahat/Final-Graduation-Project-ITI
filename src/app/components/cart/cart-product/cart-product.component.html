@@ -9,14 +9,14 @@
 </div>
 
 <div class="w-[100%] h-[100%] mt-[3rem]  ">
-<section *ngIf="cartCount> 0" class="relative flex flex-row items-start w-[80rem] m-auto justify-between lg:w-[80rem] md:w-[70rem] md:justify-evenly ">
+<section *ngIf="cartCount> 0" class="lg:grid lg:grid-cols-12 lg:gap-8 md:block">
+
+  <div class="lg:col-span-2"></div>
+  <div class="lg:col-span-6">
+  <div class=" border p-8">
 
 
-
-  <div class="flex flex-col w-[70%] h-[35rem] border-2 border-opacity-40 border-[#C4C4C4] pt-5 px-5 box-content lg:w-[70%] md:w-[40%] sm:w-[60%] lg:h-[90%]">
-
-
-    <div class="flex flex-row justify-between w-auto font-medium px-3 py-3 border-b-2">
+    <div class="flex justify-between">
       <p class="">Shopping Cart</p>
       <p class="">Price</p>
     </div>
@@ -36,10 +36,11 @@
 
 
           <div class="flex flex-col   items-start  gap-y-[.4rem]">
-
+              <p class="mb-2">{{product.product.name}}</p>
             <div class="flex flex-row gap-x-[1rem]">
+              
               <p class="form-label text-gray-700 font-medium">
-                Quantity
+                Quantity 
               </p>
 
               <input [(ngModel)]="product.quantity" (input)="updateCartQuantity($event, product)" type="number" class="
@@ -62,7 +63,7 @@
 
               <button (click)="deleteCartItem(product)" type="button" data-mdb-ripple="true"
                 data-mdb-ripple-color="light"
-                class="inline-block w-[4rem] h-[1.5rem] bg-[#F66B0E] text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-[#fa924d] hover:shadow-lg focus:bg-[#F66B0E] focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#F66B0E] active:shadow-lg transition duration-150 ease-in-out">Remove
+                class=" mt-2 inline-block w-[4rem] h-[1.5rem] bg-[#F66B0E] text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-[#fa924d] hover:shadow-lg focus:bg-[#F66B0E] focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#F66B0E] active:shadow-lg transition duration-150 ease-in-out">Remove
               </button>
             </div>
           </div>
@@ -80,8 +81,8 @@
   
     </div>
 
-
-    <div class=" absolute top-[80%] right-[25%] mr-[10.344rem] my-4 ">
+</div>
+    <div class="text-right mt-3">
       <pagination-controls (pageChange)="p = $event">  </pagination-controls>
     </div>
 
@@ -94,7 +95,7 @@
 </div>
 
 
-<div class=" flex flex-col w-[19.469rem] h-full  items-center p-5 justify-evenly gap-[.5rem] border-2 ">
+<div class="lg:col-span-2 border h-[200px] p-7">
   <p class="font-semibold border-b-2 pt-5 ">Order Summary</p>
 
   <p class="p-2 font-bold  py-4"> {{ totalPrice| currency : 'EGP'}}
@@ -102,6 +103,8 @@
 
   <button (click)="navigateToCheckout()" class="inline-block w-[7rem] h-[2.5rem] bg-[#F66B0E] text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-[#fa924d] hover:shadow-lg focus:bg-[#F66B0E] focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#F66B0E] active:shadow-lg transition duration-150 ease-in-out ">Checkout!</button>
  </div>
+
+ <div class="lg:col-span-2"></div>
 
 
 </section>
