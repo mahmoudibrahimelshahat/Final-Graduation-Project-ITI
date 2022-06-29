@@ -17,7 +17,36 @@
 
         <div  class="flex" *ngFor="let product of  wishlistProducts  | paginate: { itemsPerPage: 3, currentPage: p}">
 
-            <app-product-item [productItem]="product.product"></app-product-item>
+            <!-- <app-product-item [productItem]="product.product"></app-product-item> -->
+            <div class=" flex flex-col w-[18rem] h-[ 25rem] mb-9 text-[#F66B0E] font-inter mt-[4rem] lg:w-[18rem] md:w-[12rem] sm:[6rem]">
+                <div class=" w-full relative">
+                    <img [routerLink]="'/products/'+ product.product?._id" [src]="product.product?.image"
+                        class=" w-full h-[18.563rem] max-w-xs  hover:scale-105 transition duration-300 ease-in-out rounded-t-lg ">
+            
+            
+                    <i  class="bi bi-x text-2xl absolute right-[1rem] top-[1rem] hover:cursor-pointer"
+                        (click)="deleteFromWishlist(product)"></i>
+<!--                         
+                    <i *ngIf="updateCart"
+                        class="bi bi-x text-2xl absolute right-[2rem] top-[1rem] hover:cursor-pointer"
+                        (click)="getWishlist()"></i>  -->
+            
+                </div>
+                <div class="w-full h-[9.875rem] flex flex-row justify-around bg-[#f5f5f5] bg-opacity-[8%]  rounded-lg  ">
+                    <div class="flex flex-col justify-center gap-3 ">
+                        <p class="text-[16px] font-semibold "> {{product.product?.name}} </p>
+                        <p class="text-[16px] font-normal text-black">{{ product.product?.price | currency : 'EGP '}} </p>
+                        <p-rating [(ngModel)]="product.product.rating" on [cancel]="false"></p-rating>
+            
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <i class="bi bi-handbag text-2xl hover:cursor-pointer" (click)="addToCart(product)"> </i>
+                    </div>
+                </div>
+            
+            </div>
+            
+            
         </div>
 
 

@@ -110,6 +110,12 @@ export class CartService {
 
     const cart = this.getCartItem();
 
+
+    // const idIndex = cart.items?.findIndex((item)=>{ return item.productId !== id})
+   
+    // cart.items?.splice(idIndex,1)
+   
+
     const newCart = cart.items?.filter((item)=>{ return item.productId !== id})
    
     cart.items = newCart
