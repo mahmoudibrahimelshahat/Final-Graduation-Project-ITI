@@ -42,6 +42,7 @@ import { NavbarLogoComponent } from './components/nav/navbar-logo/navbar-logo.co
 import {BreadcrumbModule} from 'primeng/breadcrumb';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ProfileInfoComponent } from './profile-info/profile-info.component';
+import { NgxLoadingModule } from "ngx-loading";
 
 
 @NgModule({
@@ -75,7 +76,7 @@ import { ProfileInfoComponent } from './profile-info/profile-info.component';
     NavbarLogoComponent,
     ProfileInfoComponent,
   ],
-  imports: [BrowserModule,NgxPaginationModule,DialogModule,ButtonModule,CommonModule, BreadcrumbModule,AppRoutingModule, HttpClientModule, FormsModule, BrowserAnimationsModule , BadgeModule,ReactiveFormsModule,RatingModule,
+  imports: [BrowserModule,NgxPaginationModule,DialogModule,  NgxLoadingModule.forRoot({}) , ButtonModule,CommonModule, BreadcrumbModule,AppRoutingModule, HttpClientModule, FormsModule, BrowserAnimationsModule , BadgeModule,ReactiveFormsModule,RatingModule,
     NgxStripeModule.forRoot('pk_test_51LAHRkDcklN39IybeFn1mPXwjK5zmDTS93UCM7gLDvAgoDFAeI0aizpNpkgLyMPWyrbWaZtEzWNI2ZbZgeBantHH00XSZXcTpG'),],
   providers: [
     AuthGuard,

@@ -31,13 +31,6 @@ export class CartProductComponent implements OnInit, OnDestroy {
 
   emptyCart : number
 
-  // CategoryId: string
-
-  // productList: Product[] = [];
-  // categoriesList: Category[] = [];
-  // categoryProduct: Product[] = []
-  // cartCount: number = 0;
-
 
   error: any = '';
 
@@ -54,10 +47,6 @@ export class CartProductComponent implements OnInit, OnDestroy {
     this._getCartDetails()
     this.getOrderSummary()
     console.log(this.productCart)
-
-
-    // this.loadProduct();
-    // this.loadCategories();
 
   }
 
@@ -140,60 +129,6 @@ export class CartProductComponent implements OnInit, OnDestroy {
     this.router.navigate(['/checkout'])
   }
 
-
-  // private loadProduct(selectedCategories?: string[]) {
-
-  //   console.log('this is selected ' + selectedCategories)
-  //   this.productService.getproducts(selectedCategories).subscribe((resProducts) => {
-  //     this.productList = resProducts;
-  //     console.log(this.productList +'all');
-
-  //   });
-  // }
-
-
-  // private loadCategoryProducts(CategoryId?: string) {
-
-  //   // console.log('this is selected ' +CategoryId)
-  //   this.productService.getSingleCategoryproducts(CategoryId).subscribe((resProducts) => {
-  //     this.productList = resProducts;
-  //     console.log(this.productList + 'hello');
-
-  //   });
-  // }
-
-
-  // private loadCategories() {
-  //   this.categoriesService.getCategories().subscribe((resCategories) => {
-  //     this.categoriesList = resCategories;
-  //     // console.log(this.categoriesList);
-
-  //   });
-  // }
-
-
-
-  // categoriesFilter() {
-  //   const selectedCategories = this.categoriesList
-  //     .filter(category => category.checked)
-  //     .map(category => category._id)
-
-  //   this.loadProduct(selectedCategories)
-  // }
-
-
-  // categoryFilter(id : string) {
-
-  //   this.CategoryId = id
-
-  //   this.loadCategoryProducts(this.CategoryId)
-
-
-  // }
-
-
-
-    
   updateCart : boolean = false
 
 
